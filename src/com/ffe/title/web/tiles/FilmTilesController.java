@@ -6,10 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ffe.common.exception.GTSException;
+import com.ffe.title.model.Title;
 
 
 @Controller
@@ -335,7 +337,11 @@ public class FilmTilesController {
 		log.info("Inside BusinessEntityTilesController.getBusinessEntity input "
 				);
 		try {
-			/*BusinessEntity businessEntity = businessEntityService.getBusinessEntity(businessEntityId);
+			Title title = new Title();
+			title.setWprNumber("wprpwpr");
+			model.addAttribute("title", title);
+			/*BusinessEntity businessEntity = businessEntityService.getBusinessEntity(businessEntityId);\
+			 
 			log.debug("Contacts in BE : "+ businessEntity.getContacts());
 			//populateModelWithReferenceTypes(model);
 			businessEntity.setCommentsToDelete(null);
@@ -351,12 +357,41 @@ public class FilmTilesController {
 	}
 	
 	
-	@RequestMapping(value = "/titlehome2")
-	public String getBusinessEntity2(@RequestParam(value = "businessEntityId") long businessEntityId,
+	@RequestMapping(value = "/savetitle")
+	public String getBusinessEntity2(@ModelAttribute(value="title")Title title, BindingResult result,
 			Model model, HttpServletRequest request) throws GTSException{
-		log.info("Inside BusinessEntityTilesController.getBusinessEntity input "
-				+ businessEntityId);
-		try {
+		System.out.println("----------------------------------->");
+		log.info("Inside BusinessEntityTilesController.getBusinessEntity input");
+		try {			
+			System.out.println("-----------wprNumber-------->"+title.getWprNumber());
+			System.out.println("--------productNumber----------->"+title.getProductNumber());
+			System.out.println("-----------mpaNumber-------->"+title.getMpaNumber());
+			System.out.println("-----------videoCatelog-------->"+title.getVideoCatelog());
+			System.out.println("--------edicode----------->"+title.getEdicode());
+			/*BusinessEntity businessEntity = businessEntityService.getBusinessEntity(businessEntityId);
+			log.debug("Contacts in BE : "+ businessEntity.getContacts());
+			//populateModelWithReferenceTypes(model);
+			businessEntity.setCommentsToDelete(null);
+			businessEntity.setCommentsToUpdate(null);
+			model.addAttribute("businessEntity", businessEntity);
+			model.addAttribute("searchBEString", request.getParameter("searchBEString"));
+			model.addAttribute("selectedBEId", businessEntityId);*/
+		} catch(Exception e){
+			log.error("Exception Occured in BusinessEntityTilesController.getBusinessEntity : ",e);
+			throw new GTSException(e.getMessage(),e.getCause());
+		}
+		return "vtitle_tile";
+	}
+	
+	@RequestMapping(value = "/savetitle2")
+	public String getBusinessEntity3(Model model, HttpServletRequest request) throws GTSException{
+		log.info("Inside BusinessEntityTilesController.getBusinessEntity input 2");
+		try {			
+			System.out.println("-----------wprNumber-------->"+request.getParameter("wprNumber"));
+			System.out.println("--------productNumber----------->"+request.getParameter("productNumber"));
+			System.out.println("-----------mpaNumber-------->"+request.getParameter("mpaNumber"));
+			System.out.println("-----------videoCatelog-------->"+request.getParameter("videoCatelog"));
+			System.out.println("--------edicode----------->"+request.getParameter("edicode"));
 			/*BusinessEntity businessEntity = businessEntityService.getBusinessEntity(businessEntityId);
 			log.debug("Contacts in BE : "+ businessEntity.getContacts());
 			//populateModelWithReferenceTypes(model);
