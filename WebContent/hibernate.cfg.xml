@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="hibernateSessionFactory">
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://3.209.176.18:3306/</property>
+  <property name="hibernate.default_schema">ffepoc_try1</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <mapping class="com.ffe.title.model.Title" resource="com/ffe/title/model/"/>
+ </session-factory>
+</hibernate-configuration>
