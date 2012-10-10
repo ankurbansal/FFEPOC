@@ -20,12 +20,6 @@
 	<mvc:annotation-driven />
 	
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
-		<!--  <property name="webBindingInitializer">
-			<bean class="com.nbcu.common.framework.web.AddressBookWebBindingInitializer"/>
-		</property>
-	</bean>
-	-->
-
 	
 	<!-- Spring, Ajax & Tiles -->
 	<bean id="ajaxTilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
@@ -54,9 +48,6 @@
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">		
-
-		<!-- <property name="basename" value="addressbook/locale/messages" />		 -->
-
 		<property name="basename"
 			value="${jboss.server.config.url}/addressbook/locale/messages" /> 		
 

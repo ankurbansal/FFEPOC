@@ -15,7 +15,7 @@ img {
 }
 
 .TopBannerBgContainer {
-	background: url(/addressbook/resources/images/TopBannerBg.jpg) top right no-repeat
+	background: url(/ffe/resources/images/TopBannerBg.jpg) top right no-repeat
 		#000;
 	height: 68px;
 	width: 1002px;
@@ -36,7 +36,7 @@ img {
 }
 
 .TopLoginContainer {
-	background: url(/addressbook/resources/images/TopLoginBg.gif) no-repeat;
+	background: url(/ffe/resources/images/TopLoginBg.gif) no-repeat;
 	width: 155px;
 	height: 27px;
 	float: right;
@@ -136,50 +136,50 @@ a.FooterLink:hover {
 }
 
 .BoxTop {
-	background: url(/addressbook/resources/images/TableTop.jpg) no-repeat;
+	background: url(/ffe/resources/images/TableTop.jpg) no-repeat;
 	height: 31px;
 	width: 522px;
 }
 
 .AppBoxTop {
-	background: url(/addressbook/resources/images/TableTop.jpg) no-repeat;
+	background: url(/ffe/resources/images/TableTop.jpg) no-repeat;
 	height: 31px;
 	width:  937px;
 }
 
 .AddBoxTop {
-	background: url(/addressbook/resources/images/AddBoxTop.jpg) no-repeat;
+	background: url(/ffe/resources/images/AddBoxTop.jpg) no-repeat;
 	height: 31px;
 	width: 415px;
 }
 
 .AppBoxMid {
-	background: url(/addressbook/resources/images/TableMid.jpg) repeat-y;
+	background: url(/ffe/resources/images/TableMid.jpg) repeat-y;
 	height: auto;
 	width: 937px
 }
 
 .BoxMid {
-	background: url(/addressbook/resources/images/TableMid.jpg) repeat-y;
+	background: url(/ffe/resources/images/TableMid.jpg) repeat-y;
 	height: auto;
 	width: 522px
 }
 
 .AddBoxMid {
-	background: url(/addressbook/resources/images/AddTableMid.jpg) repeat-y;
+	background: url(/ffe/resources/images/AddTableMid.jpg) repeat-y;
 	height: auto;
 	width: 415px
 }
 
 .BoxBot {
 	width: 522px;
-	background: url(/addressbook/resources/images/TableBot.jpg) no-repeat;
+	background: url(/ffe/resources/images/TableBot.jpg) no-repeat;
 	height: 13px
 }
 
 .AddBoxBot {
 	width: 415px;
-	background: url(/addressbook/resources/images/AddBoxBot.jpg) no-repeat;
+	background: url(/ffe/resources/images/AddBoxBot.jpg) no-repeat;
 	height: 13px
 }
 
@@ -256,7 +256,7 @@ a.FooterLink:hover {
 .BEpeopleBoxContainer {
 	float: left;
 	width: 114px;
-	background: url(/addressbook/resources/images/BNpeopleBox.jpg) no-repeat;
+	background: url(/ffe/resources/images/BNpeopleBox.jpg) no-repeat;
 	height: 308px;
 }
 
@@ -279,7 +279,7 @@ a.FooterLink:hover {
 .BEaddBoxContainer {
 	float: left;
 	width: 107px;
-	background: url(/addressbook/resources/images/BNaddBox.jpg) no-repeat;
+	background: url(/ffe/resources/images/BNaddBox.jpg) no-repeat;
 	height: 308px
 }
 
@@ -357,7 +357,7 @@ a.FooterLink:hover {
 .PersonBoxContainer {
 	float: left;
 	width: 107px;
-	background: url(/addressbook/resources/images/PersonaddBox.jpg) no-repeat;
+	background: url(/ffe/resources/images/PersonaddBox.jpg) no-repeat;
 	height: 308px;
 }
 
@@ -402,20 +402,20 @@ a.FooterLink:hover {
 }
 
 .AdminBoxTop {
-	background: url(/addressbook/resources/images/AdminTableTop.jpg) no-repeat;
+	background: url(/ffe/resources/images/AdminTableTop.jpg) no-repeat;
 	height: 31px;
 	width: 948px;
 }
 
 .AdminBoxMid {
-	background: url(/addressbook/resources/images/AdminTableMid.jpg) repeat-y;
+	background: url(/ffe/resources/images/AdminTableMid.jpg) repeat-y;
 	height: auto;
 	width: 948px
 }
 
 .AdminBoxBot {
 	width: 948px;
-	background: url(/addressbook/resources/images/AdminTableBot.jpg) no-repeat;
+	background: url(/ffe/resources/images/AdminTableBot.jpg) no-repeat;
 	height: 13px
 }
 
@@ -429,7 +429,7 @@ a.FooterLink:hover {
 	FONT-WEIGHT: normal;
 	FONT-SIZE: 12px;
 	COLOR: #12376C;
-	background: url(/addressbook/resources/images/TableHeaderBg.jpg) repeat-x;
+	background: url(/ffe/resources/images/TableHeaderBg.jpg) repeat-x;
 	height: 28px;
 	font-weight: bold;
 	text-align: center;
@@ -439,7 +439,7 @@ a.FooterLink:hover {
 	FONT-WEIGHT: normal;
 	FONT-SIZE: 14px;
 	COLOR: #12376C;
-	background: url(/addressbook/resources/images/TableHeaderBg.jpg) repeat-x;
+	background: url(/ffe/resources/images/TableHeaderBg.jpg) repeat-x;
 	height: 28px;
 	font-weight: normal;
 	font-style:italic;
@@ -630,7 +630,7 @@ a.FooterLink:hover {
 }
 
 a.button {
-background: transparent url(/addressbook/resources/images/bg_button_a.gif) no-repeat scroll top right; /* Save the bg_button_a.gif in the same folder */ 
+background: transparent url(/ffe/resources/images/bg_button_a.gif) no-repeat scroll top right; /* Save the bg_button_a.gif in the same folder */ 
 color: #444; 
 display: block;
 float: left;
@@ -642,7 +642,7 @@ text-decoration: none;
 }
 
 a.button span {
-background: transparent url(/addressbook/resources/images/bg_button_span.gif) no-repeat top left; /* Save the bg_button_span.gif in the same folder */
+background: transparent url(/ffe/resources/images/bg_button_span.gif) no-repeat top left; /* Save the bg_button_span.gif in the same folder */
 display: block;
 line-height: 14px; 
 padding: 5px 0 5px 18px; 
@@ -663,7 +663,7 @@ padding: 6px 0 4px 18px;
 /*-----------------------*/
 
 a.buttonDis {
-background: transparent url(/addressbook/resources/images/bg_button_aDis.gif) no-repeat scroll top right; /* Save the bg_button_a.gif in the same folder */ 
+background: transparent url(/ffe/resources/images/bg_button_aDis.gif) no-repeat scroll top right; /* Save the bg_button_a.gif in the same folder */ 
 color: #444; 
 display: block;
 float: left;
@@ -675,7 +675,7 @@ text-decoration: none;
 }
 
 a.buttonDis span {
-background: transparent url(/addressbook/resources/images/bg_button_spanDis.gif) no-repeat top left; /* Save the bg_button_span.gif in the same folder */
+background: transparent url(/ffe/resources/images/bg_button_spanDis.gif) no-repeat top left; /* Save the bg_button_span.gif in the same folder */
 display: block;
 line-height: 14px; 
 padding: 5px 0 5px 18px; 

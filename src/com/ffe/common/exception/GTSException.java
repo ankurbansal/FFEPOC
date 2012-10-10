@@ -46,7 +46,7 @@ public class GTSException extends Exception implements Serializable {
 
 	@Override
 	public String toString() {
-		return new StringBuffer("AddressBookException[")
+		return new StringBuffer("GTSException[")
 				.append(faultCode).append(",  ").append(faultMessage)
 				.append("]").toString();
 	}

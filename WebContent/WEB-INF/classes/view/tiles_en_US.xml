@@ -4,44 +4,11 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
- 
- <definition name="tiles_loadAddressBook" template="/WEB-INF/jsp/tiles/tiles_template.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/tiles/tiles_header.jsp"/>
-      <put-attribute name="menu" value="/WEB-INF/jsp/tiles/tiles_menu.jsp"/>
-      <put-attribute name="businessEntity" value="/WEB-INF/jsp/tiles/tiles_businessEntityDetails.jsp"/>
-      <put-attribute name="physicalAddress" value="/WEB-INF/jsp/tiles/tiles_physicalAddressDetails.jsp"/>
-      <put-attribute name="person" value="/WEB-INF/jsp/tiles/tiles_personDetails.jsp"/>
-      <put-attribute name="footer" value="/WEB-INF/jsp/tiles/tiles_footer.jsp"/>
-  </definition>
-  
-  <definition name="tiles_approvalQueue" template="/WEB-INF/jsp/tiles/approval_tiles_template.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/tiles/tiles_header.jsp"/>
-      <put-attribute name="menu" value="/WEB-INF/jsp/tiles/tiles_menu.jsp"/>
-      <put-attribute name="approval" value="/WEB-INF/jsp/tiles/tiles_approvalQueue.jsp"/>
-      <put-attribute name="footer" value="/WEB-INF/jsp/tiles/tiles_footer.jsp"/>
-  </definition>
-  
-   <definition name="tiles_loadAddressBook_v1.0" template="/WEB-INF/jsp/tiles_v1/tiles_template.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/tiles_v1/tiles_header.jsp"/>
-      <put-attribute name="menu" value="/WEB-INF/jsp/tiles_v1/tiles_menu.jsp"/>
-      <put-attribute name="businessEntity" value="/WEB-INF/jsp/tiles_v1/tiles_businessEntityDetails.jsp"/>
-      <put-attribute name="physicalAddress" value="/WEB-INF/jsp/tiles_v1/tiles_physicalAddressDetails.jsp"/>
-      <put-attribute name="person" value="/WEB-INF/jsp/tiles_v1/tiles_personDetails.jsp"/>
-  </definition>
- <!-- 
-  <definition name="tiles_personDetails" template="/WEB-INF/jsp/tiles_v1/template.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/tiles_v1/header.jsp"/>
-      <put-attribute name="body" value="/WEB-INF/jsp/tiles_v1/tiles_personDetails.jsp"/>
-  </definition>
-  
-   -->
-  <!-- 
-  <definition name="page1" extends="welcome">
-      <put-attribute name="body" value="/WEB-INF/jsp/tiles_v1/page1.jsp"/>
-  </definition>
-  <definition name="page2" extends="welcome">
-      <put-attribute name="body" value="/WEB-INF/jsp/tiles_v1/page2.jsp"/>
-  </definition>
-  -->
-  
+ <definition name="tiles_general_layout" template="/WEB-INF/jsp/tiles_template.jsp">
+      <put-attribute name="header" value="/WEB-INF/jsp/vtitle_home.jsp"/>
+      <put-attribute name="menu" value="/WEB-INF/jsp/vtitle_home.jsp"/>
+      <put-attribute name="innerBox1" value="/WEB-INF/jsp/vtitle_home.jsp"/>
+      <put-attribute name="innerBox2" value="/WEB-INF/jsp/vtitle_form.jsp"/>     
+      <put-attribute name="footer" value="/WEB-INF/jsp/vtitle_home.jsp"/>
+  </definition>  
 </tiles-definitions>
