@@ -5,23 +5,61 @@ package com.ffe.title.model;
  */
 
 
-import java.util.Date;
-
 import com.ffe.common.framework.model.AbstractDomain;
 
 
 public class Title extends AbstractDomain {
+	
+	@Override
+	public String toString() {
+		return "Title [titleId=" + titleId + ", titleName=" + titleName
+				+ ", wprNumber=" + wprNumber + ", productNumber="
+				+ productNumber + ", mpaNumber=" + mpaNumber
+				+ ", videoCatelog=" + videoCatelog + ", visa=" + visa
+				+ ", edicode=" + edicode + ", releaseyear=" + releaseyear
+				+ ", countryid=" + countryid + ", hh=" + hh + ", mm=" + mm
+				+ ", ss=" + ss + ", aspectRatio=" + aspectRatio
+				+ ", languageId=" + languageId + ", ActiveFlag=" + ActiveFlag
+				+ ", rightsNotification=" + rightsNotification + ", comments="
+				+ comments + "]";
+	}
 	private Long titleId;
+	private String titleName;
+	
 	private String wprNumber;
 	private String productNumber ;
 	private String mpaNumber ;
 	private String videoCatelog ;
 	private String visa;
 	private String edicode;
-	private Date releaseyear ;
-	private ReferenceType countryid;
-	private Date runningtime;
-	
+	private String releaseyear ;
+	public Long getHh() {
+		return hh;
+	}
+	public void setHh(Long hh) {
+		this.hh = hh;
+	}
+	public Long getMm() {
+		return mm;
+	}
+	public void setMm(Long mm) {
+		this.mm = mm;
+	}
+	public Long getSs() {
+		return ss;
+	}
+	public void setSs(Long ss) {
+		this.ss = ss;
+	}
+	private Long countryid;
+	private Long hh;
+	private Long mm;
+	private Long ss;
+	private Long  aspectRatio;
+	private Long languageId;
+	private Boolean ActiveFlag;
+	private String rightsNotification;
+	private String comments;
 	public Long getTitleId() {
 		return titleId;
 	}
@@ -64,28 +102,23 @@ public class Title extends AbstractDomain {
 	public void setEdicode(String edicode) {
 		this.edicode = edicode;
 	}
-	public Date getReleaseyear() {
+	public String getReleaseyear() {
 		return releaseyear;
 	}
-	public void setReleaseyear(Date releaseyear) {
+	public void setReleaseyear(String releaseyear) {
 		this.releaseyear = releaseyear;
 	}
-	public ReferenceType getCountryid() {
+	public Long getCountryid() {
 		return countryid;
 	}
-	public void setCountryid(ReferenceType countryid) {
+	public void setCountryid(Long countryid) {
 		this.countryid = countryid;
 	}
-	public Date getRunningtime() {
-		return runningtime;
-	}
-	public void setRunningtime(Date runningtime) {
-		this.runningtime = runningtime;
-	}
-	public String getAspectRatio() {
+	
+	public Long getAspectRatio() {
 		return aspectRatio;
 	}
-	public void setAspectRatio(String aspectRatio) {
+	public void setAspectRatio(Long aspectRatio) {
 		this.aspectRatio = aspectRatio;
 	}
 	public Long getLanguageId() {
@@ -106,21 +139,19 @@ public class Title extends AbstractDomain {
 	public void setRightsNotification(String rightsNotification) {
 		this.rightsNotification = rightsNotification;
 	}
-	private String aspectRatio;
-	private Long languageId;
-	private Boolean ActiveFlag;
-	private String rightsNotification;
-	private String comment;
 	public String getComments() {
-		
-		// TODO Auto-generated method stub
-		return comment;
+		return comments;
 	}
-	public String getComment() {
-		return comment;
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public String getTitleName() {
+		return titleName;
 	}
+	public void setTitleName(String titleName) {
+		this.titleName = titleName;
+	}
+	
+	
 	
 }

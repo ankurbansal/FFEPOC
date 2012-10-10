@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 10, 2012 7:43:01 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ffe.title.model.Title" table="TITLE">
+        <id name="titleId" type="java.lang.Long">
+            <column name="TITLEID" />
+            <generator class="increment"></generator>
+        </id>
+        <property name="titleName" type="java.lang.String">
+            <column name="TITLENAME" />
+        </property>
+        <property name="wprNumber" type="java.lang.String">
+            <column name="WPRNUMBER" />
+        </property>
+        <property name="productNumber" type="java.lang.String">
+            <column name="PRODUCTNUMBER" />
+        </property>
+        <property name="mpaNumber" type="java.lang.String">
+            <column name="MPANUMBER" />
+        </property>
+        <property name="videoCatelog" type="java.lang.String">
+            <column name="VIDEOCATELOG" />
+        </property>
+        <property name="visa" type="java.lang.String">
+            <column name="VISA" />
+        </property>
+        <property name="edicode" type="java.lang.String">
+            <column name="EDICODE" />
+        </property>
+        <property name="releaseyear" type="java.lang.String">
+            <column name="RELEASEYEAR" />
+        </property>
+        <property name="countryid" type="java.lang.Long">
+            <column name="COUNTRYID" />
+        </property>
+        <property name="hh" type="java.lang.Long">
+            <column name="HH" />
+        </property>
+        <property name="mm" type="java.lang.Long">
+            <column name="MM" />
+        </property>
+        <property name="ss" type="java.lang.Long">
+            <column name="SS" />
+        </property>
+        <property name="aspectRatio" type="java.lang.Long">
+            <column name="ASPECTRATIO" />
+        </property>
+        <property name="languageId" type="java.lang.Long">
+            <column name="LANGUAGEID" />
+        </property>
+        <property name="ActiveFlag" type="yes_no">
+            <column name="ACTIVEFLAG" />
+        </property>
+        <property name="rightsNotification" type="java.lang.String">
+            <column name="RIGHTSNOTIFICATION" />
+        </property>
+        <property name="comments" type="java.lang.String">
+            <column name="COMMENTS" />
+        </property>
+          <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+           
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.String">
+            <column name="LASTUPDATEDBY" />
+        </property>
+        <property name="lastUpdatedDateTime" type="java.util.Date">
+            <column name="LASTUPDATEDDATETIME" />
+        </property>
+        <property name="createdDateTime" type="java.util.Date">
+            <column name="CREATEDDATETIME" />
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="DELETEDFLAG" />
+        </property>
+    </class>
+    
+    <filter-def name="deletedFlagFilter">
+		<filter-param name="deletedFlagFilterParam" type="string" />
+	</filter-def>
+</hibernate-mapping>
