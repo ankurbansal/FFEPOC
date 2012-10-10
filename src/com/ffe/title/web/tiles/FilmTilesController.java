@@ -332,7 +332,7 @@ public class FilmTilesController {
 	}*/
 	
 	
-	@RequestMapping(value = "/titlehome")
+/*	@RequestMapping(value = "/titlehome")
 	public String getBusinessEntity(Model model, HttpServletRequest request) throws GTSException{
 		log.info("Inside BusinessEntityTilesController.getBusinessEntity input "
 				);
@@ -340,7 +340,7 @@ public class FilmTilesController {
 			Title title = new Title();
 			title.setWprNumber("wprpwpr");
 			model.addAttribute("title", title);
-			/*BusinessEntity businessEntity = businessEntityService.getBusinessEntity(businessEntityId);\
+			BusinessEntity businessEntity = businessEntityService.getBusinessEntity(businessEntityId);\
 			 
 			log.debug("Contacts in BE : "+ businessEntity.getContacts());
 			//populateModelWithReferenceTypes(model);
@@ -348,14 +348,14 @@ public class FilmTilesController {
 			businessEntity.setCommentsToUpdate(null);
 			model.addAttribute("businessEntity", businessEntity);
 			model.addAttribute("searchBEString", request.getParameter("searchBEString"));
-			model.addAttribute("selectedBEId", businessEntityId);*/
+			model.addAttribute("selectedBEId", businessEntityId);
 		} catch(Exception e){
 			log.error("Exception Occured in BusinessEntityTilesController.getBusinessEntity : ",e);
 			throw new GTSException(e.getMessage(),e.getCause());
 		}
 		return "tiles_general_layout"; 
 	}
-	
+	*/
 	
 	@RequestMapping(value = "/savetitle")
 	public String getBusinessEntity2(@ModelAttribute(value="title")Title title, BindingResult result,

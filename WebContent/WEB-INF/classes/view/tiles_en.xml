@@ -3,12 +3,12 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
-<tiles-definitions>
- <definition name="tiles_general_layout" template="/WEB-INF/jsp/tiles_template.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/vtitle_home.jsp"/>
-      <put-attribute name="menu" value="/WEB-INF/jsp/vtitle_home.jsp"/>
-      <put-attribute name="innerBox1" value="/WEB-INF/jsp/vtitle_home.jsp"/>
-      <put-attribute name="innerBox2" value="/WEB-INF/jsp/vtitle_form.jsp"/>     
-      <put-attribute name="footer" value="/WEB-INF/jsp/vtitle_home.jsp"/>
-  </definition>  
+<tiles-definitions> 
+ <definition name="tiles_general_layout" template="/WEB-INF/jsp/general/tiles_template.jsp"> 
+      <put-attribute name="header" value="/WEB-INF/jsp/general/header_tile.jsp"/>
+      <put-attribute name="menu" value="/WEB-INF/jsp/general/menu_tile.jsp"/>
+      <put-attribute name="innerContainer" value="/WEB-INF/jsp/add_title_form.jsp"/>    
+      <put-attribute name="innerContainer2" value="/WEB-INF/jsp/add_title_form.jsp"/>           
+      <put-attribute name="footer" value="/WEB-INF/jsp/general/footer_tile.jsp"/>
+  </definition>
 </tiles-definitions>

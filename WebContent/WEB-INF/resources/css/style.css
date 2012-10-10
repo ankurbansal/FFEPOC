@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+.userlink {
+font-family:Verdana, Geneva, sans-serif;
+color:#FFF;
+font-size:12px;
+text-align:right;
+padding:10px;
+text-decoration:none;
+}
+
+.mainmenu{
+font-family:Verdana, Geneva, sans-serif;
+color:#FFF;
+font-size:11px;
+text-align:center;
+padding:5px;
+text-decoration:none;
+}
+.mainmenu:hover{
+font-family:Verdana, Geneva, sans-serif;
+color:#06F;
+font-size:11px;
+text-align:center;
+padding:5px;
+text-decoration:none;
+}
+.divider {
+	
+font-family:Verdana, Geneva, sans-serif;
+color:#FFF;
+font-size:10px;
+text-align:center;
+padding:2px;
+text-decoration:none;
+}
+
+.submenu{
+font-family:Verdana, Geneva, sans-serif;
+color:#FFF;
+font-size:11px;
+text-align:center;
+padding:5px;
+text-decoration:none;
+}
+.submenu:hover{
+font-family:Verdana, Geneva, sans-serif;
+color:#fff;
+background-color:#182a52;
+font-size:11px;
+text-align:center;
+padding:5px;
+text-decoration:none;
+}
