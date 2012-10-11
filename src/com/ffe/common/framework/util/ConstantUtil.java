@@ -33,5 +33,7 @@ public class ConstantUtil {
 	public static final String ENTITY_PARTY_ADDRESS_NEW = "NEW";
 	public static final Long DEFAULT_ADDRESS_ROLE_ID = 100l;
 	public static final Object APPROVAL_STATUS_PENDING_FOR_DELETE = "";
+	public static final String WPR = "WPR";
+	public static final String TITLENAME = "TITLENAME";
 	
 }

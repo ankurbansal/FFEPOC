@@ -17,6 +17,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 			<tx:method name="get*" read-only="true" propagation="SUPPORTS" />
 			<tx:method name="list*" read-only="true" propagation="SUPPORTS" />
 			<tx:method name="find*" read-only="true" propagation="SUPPORTS" />
+			<tx:method name="search*" read-only="true" propagation="SUPPORTS" />
 			<tx:method name="is*" read-only="true" propagation="SUPPORTS" />
 			<!-- other methods use the default transaction settings -->
 			<tx:method name="*" read-only="false" propagation="REQUIRED"
@@ -26,7 +27,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<aop:config>
 			<aop:pointcut id="GTSDaoPoint"
-				expression="execution(* com.ffe.common.framework.dao.hibernate.*.*(..)) 	 " />
+				expression="execution(* com.ffe.common.framework.dao.hibernate.*.*(..)) 	
+				or  execution(* com.ffe.*.dao.hibernate.*.*(..))" />
 								 
 			<aop:advisor advice-ref="GTSTxAdvice" 	pointcut-ref="GTSDaoPoint" />
 		</aop:config>

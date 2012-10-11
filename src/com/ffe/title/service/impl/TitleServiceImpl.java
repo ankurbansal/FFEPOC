@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.ffe.common.exception.GTSException;
 import com.ffe.common.framework.util.ErrorMessageUtil;
 import com.ffe.title.dao.TitleDAO;
+import com.ffe.title.message.SearchCriteria;
 import com.ffe.title.model.Title;
 import com.ffe.title.service.TitleService;
 
@@ -102,9 +103,23 @@ public class TitleServiceImpl implements TitleService {
 	}
 
 	@Override
-	public List<Title> findTitle(String searchString) throws GTSException {
+	public List<Title> findTitle(SearchCriteria searchString) throws GTSException {
+		List<Title> lstTitle = null;
+		System.out.println("coming 2");
+		logger.debug("Entering TitleAdapterImpl.deleteTitle") ;
+		try {
+			lstTitle = titleDAO.searchTitle(searchString);
+			
 		
-		return null;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			logger.error(" Exception occured in TitleAdapterImpl.deleteTitle :",
+					ex.getMessage());
+			throw new GTSException(ex.getMessage(), ex.getCause());
+		}
+		logger.debug("Exiting TitleAdapterImpl.deleteTitle") ;
+		return lstTitle;
+		
 	}
 
 
