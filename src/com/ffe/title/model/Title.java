@@ -51,11 +51,11 @@ public class Title extends AbstractDomain {
 	public void setSs(Long ss) {
 		this.ss = ss;
 	}
-	private Long countryid;
+	private String countryid;
 	private Long hh;
 	private Long mm;
 	private Long ss;
-	private Long  aspectRatio;
+	private Long aspectRatio;
 	private Long languageId;
 	private Boolean ActiveFlag;
 	private String rightsNotification;
@@ -108,10 +108,10 @@ public class Title extends AbstractDomain {
 	public void setReleaseyear(String releaseyear) {
 		this.releaseyear = releaseyear;
 	}
-	public Long getCountryid() {
+	public String getCountryid() {
 		return countryid;
 	}
-	public void setCountryid(Long countryid) {
+	public void setCountryid(String countryid) {
 		this.countryid = countryid;
 	}
 	

@@ -5,7 +5,7 @@
        <tr>
          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
            <tr>
-             <td width="50%" align="left" valign="top"><img src="resources/images/index_03.gif" width="423" height="73" /></td>
+             <td width="50%" align="left" valign="top"><img src="resources/images/index_03.gif" width="130" height="73" /></td>
              <td width="50%" align="right" valign="bottom" class="userlink">Welcome: Mark<br />
                Wednesday, October 09, 2012 10:05</td>
            </tr>

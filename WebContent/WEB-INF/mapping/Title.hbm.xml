@@ -32,7 +32,7 @@
         <property name="releaseyear" type="java.lang.String">
             <column name="RELEASEYEAR" />
         </property>
-        <property name="countryid" type="java.lang.Long">
+        <property name="countryid" type="java.lang.String">
             <column name="COUNTRYID" />
         </property>
         <property name="hh" type="java.lang.Long">

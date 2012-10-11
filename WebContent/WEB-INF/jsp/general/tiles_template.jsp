@@ -25,9 +25,11 @@
 		<style type="text/css">		
 		.InnerFormBoxContainer {			
 			padding: 10px;
+			width: 234px;
 		}		
 		.AddInnerFormBoxContainer {			
 			padding: 10px;
+			width: 851px;
 		}		
 		</style>
 	</head>
@@ -41,13 +43,13 @@
 	    </td>
 	  </tr>	  
 	  <tr>
-      <td height="133"  align="center" valign="top">
+      <td align="center" valign="top">
       	<div id="MainContainer"><!--MainContainer start-->
 			<div id="InnerMainContainer"><!--InnerMainContainer start-->
-	      	<table width="100%" height="500px" border="0" cellspacing="0" cellpadding="0">
+	      	<table width="100%" height="500" border="0" cellspacing="0" cellpadding="0">
 	      	<tr>
 		        <td align="left" valign="top" background="resources/images/index_07.gif" style="background-repeat:repeat-y">&nbsp;</td>
-	        	<td width="80%" height="500px" align="center" valign="top">
+	        	<td width="80%" height="500" align="center" valign="top">
 					<table  bgcolor="#FFFFFF" width="100%" border="0" cellspacing="0" cellpadding="0">
 			          <tr>
 	            		<td>	            						
@@ -57,25 +59,30 @@
 						</td>
           			 </tr>
                      <tr>
-                       <td><table width="100%" height="500px" border="0" cellspacing="0" cellpadding="0">
+                       <td><table width="100%" height="500" border="0" cellspacing="0" cellpadding="0">
               			<tr>
-                		 <td>				
+                		 <td align="center" valign="top">				
 							<div class="InnerFormMainContainer"><!--InnerFormMainContainer start-->
 								<div class="EntryMainLeft"><!--EntryMainLeft start-->
 									<div class="InnerFormBoxContainer"><!--Business Entity InnerFormBoxContainer start-->
-										<tiles:insertAttribute name="innerContainer" />						
+										<tiles:insertAttribute name="innerLeftContainer" />						
 									</div><!--Business Entity InnerFormBoxContainer end-->					
 								</div><!--EntryMainLeft end-->
-								<div class="EntryMainRight"><!--EntryMainRight start-->
+								<div class="ClearFloat"></div>
+								<div class="BotHeight"></div>								
+							</div><!--InnerFormMainContainer end-->
+						</td>
+               			 <td align="center" valign="top">
+               			 	<div class="InnerFormMainContainer"><!--InnerFormMainContainer start-->
+               					<div class="EntryMainRight"><!--EntryMainRight start-->
 									<div class="AddInnerFormBoxContainer"><!--Address InnerFormBoxContainer start-->
-										<!-- tiles:insertAttribute name="innerContainer2" /-->						
+										<tiles:insertAttribute name="innerRightContainer" />						
 									</div><!--Address InnerFormBoxContainer end-->					
 								</div><!--EntryMainRight end-->
 								<div class="ClearFloat"></div>
 								<div class="BotHeight"></div>
 							</div><!--InnerFormMainContainer end-->
-						</td>
-               			 <td align="left" valign="top">&nbsp;</td>
+               			 </td>
               			</tr>
            			 </table></td>
          			 </tr>	

@@ -20,9 +20,7 @@ public class FilmController {
 	public String getTitleHome(Model model, HttpServletRequest request) throws GTSException{
 		log.info("Inside FilmController.getTitleHome");
 		try {			
-			Title title = new Title();
-			title.setWprNumber("wprpwpr");
-			model.addAttribute("title", title);
+			model.addAttribute("title", new Title());
 			populateModelWithReferenceTypes(model);		
 		} catch(Exception e){
 			log.error("Exception Occured in FilmController.getTitleHome : ",e);
@@ -31,7 +29,7 @@ public class FilmController {
 		return "tiles_general_layout"; 
 	}
 
-	private void populateModelWithReferenceTypes(Model model) {
+	private static void populateModelWithReferenceTypes(Model model) {
 		
 		
 	}

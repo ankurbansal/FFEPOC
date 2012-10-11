@@ -27,7 +27,6 @@ padding:5px;
 text-decoration:none;
 }
 .divider {
-	
 font-family:Verdana, Geneva, sans-serif;
 color:#FFF;
 font-size:10px;
@@ -52,4 +51,107 @@ font-size:11px;
 text-align:center;
 padding:5px;
 text-decoration:none;
+}
+
+.advancesearch {
+font-family:Verdana, Geneva, sans-serif;
+color:#FFF;
+font-size:8px;
+text-align:right;
+padding:2px;
+}
+.lefttext {
+font-family:Verdana, Geneva, sans-serif;
+color:#000000;
+font-size:10px;
+text-align:left;
+padding:2px;
+}
+
+.leftmenu{
+font-family:Verdana, Geneva, sans-serif;
+background-color:#E6E6E6;
+color:#000;
+font-size:12px;
+text-align:left;
+padding:10px;
+text-decoration:none;
+height:20px;
+}
+
+.leftmenu:hover{
+font-family:Verdana, Geneva, sans-serif;
+color:#000;
+background-color:#CFCFCF;
+font-size:12px;
+text-align:left;
+padding:10px;
+text-decoration:none;
+}
+
+.copyright{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#FFF;
+	font-size:12px;
+	padding-left:10px;
+}
+
+.heading{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#333;
+	font-size:20px;
+	padding-left:10px;
+}
+
+.headingbutton1{
+font-family:Verdana, Geneva, sans-serif;
+background-color:#E6E6E6;
+color:#000;
+font-weight:bold;
+font-size:12px;
+text-align:center;
+padding:10px;
+text-decoration:none;
+height:20px;
+border:1px;
+border-left:#666;
+border-right:#666;
+border-top:#666;
+}
+
+.headingbutton2{
+font-family:Verdana, Geneva, sans-serif;
+background-color:#999;
+color:#000;
+font-size:12px;
+text-align:center;
+padding:5px;
+text-decoration:none;
+height:15px;
+border:1px;
+border-left:#666;
+border-right:#666;
+border-top:#666;
+border-bottom:#666;
+}
+
+.table1{
+font-family:Verdana, Geneva, sans-serif;
+background-color:#E6E6E6;
+color:#000;
+font-size:12px;
+padding:5px;
+text-decoration:none;
+border:1px;
+border-left:#000;
+border-right:#000;
+border-bottom:#000;
+}
+
+.content{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:11px;
+	padding-left:2px;
+	
 }

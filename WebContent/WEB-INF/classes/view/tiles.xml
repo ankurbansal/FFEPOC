@@ -6,9 +6,13 @@
 <tiles-definitions> 
  <definition name="tiles_general_layout" template="/WEB-INF/jsp/general/tiles_template.jsp">
       <put-attribute name="header" value="/WEB-INF/jsp/general/header_tile.jsp"/>
-      <put-attribute name="menu" value="/WEB-INF/jsp/general/menu_tile.jsp"/>
-      <put-attribute name="innerContainer" value="/WEB-INF/jsp/add_title_form.jsp"/>    
-      <!-- put-attribute name="innerContainer2" value="/WEB-INF/jsp/add_title_form.jsp"/-->           
+      <put-attribute name="menu" value="/WEB-INF/jsp/general/tabbed_menu_tile.jsp"/>
+      <put-attribute name="innerLeftContainer" value="/WEB-INF/jsp/general/left_menu_tile.jsp"/>    
+      <put-attribute name="innerRightContainer" value="/WEB-INF/jsp/add_title_form.jsp"/>           
       <put-attribute name="footer" value="/WEB-INF/jsp/general/footer_tile.jsp"/>
   </definition>
+  
+   <definition name="view_title" extends="tiles_general_layout">
+   		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/view_title.jsp"/>
+   </definition>
 </tiles-definitions>
