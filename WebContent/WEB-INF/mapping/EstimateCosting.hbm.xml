@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="EstimateCosting" table="estimate_costing" catalog="ffepoc_try1">
+        <id name="estimateCostingId" type="int">
+            <column name="estimate_costingID" />
+            <generator class="assigned" />
+        </id>
+        <property name="estimateCostTypeId" type="java.lang.Integer">
+            <column name="estimate_cost_type_ID" />
+        </property>
+        <property name="estimateid" type="int">
+            <column name="estimateid" not-null="true" />
+        </property>
+        <property name="serviceId" type="java.lang.Integer">
+            <column name="serviceID" />
+        </property>
+        <property name="localCurrentCost" type="big_decimal">
+            <column name="localCurrentCost" precision="20" scale="0" />
+        </property>
+        <property name="currecySelectedId" type="java.lang.Integer">
+            <column name="currecySelectedID" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+        <property name="totalcost" type="big_decimal">
+            <column name="totalcost" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

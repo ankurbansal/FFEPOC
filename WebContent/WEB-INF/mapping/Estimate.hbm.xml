@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Estimate" table="estimate" catalog="ffepoc_try1">
+        <id name="estimateId" type="int">
+            <column name="estimateID" />
+            <generator class="assigned" />
+        </id>
+        <property name="releaseId" type="java.lang.Integer">
+            <column name="releaseID" />
+        </property>
+        <property name="totalUscost" type="big_decimal">
+            <column name="TotalUSCost" precision="20" scale="0" />
+        </property>
+        <property name="totalLocalCost" type="big_decimal">
+            <column name="TotalLocalCost" precision="20" scale="0" />
+        </property>
+        <property name="createdby" type="string">
+            <column name="CREATEDBY" length="20" />
+        </property>
+        <property name="lastupdatedby" type="string">
+            <column name="LASTUPDATEDBY" length="20" />
+        </property>
+        <property name="lastupdateddatetime" type="date">
+            <column name="LASTUPDATEDDATETIME" length="10" />
+        </property>
+        <property name="createddatetime" type="date">
+            <column name="CREATEDDATETIME" length="10" />
+        </property>
+        <bag name="lstEstimateCosting" cascade="all" inverse="true" >
+        <key column="ESTIMATE_ID"/>
+        	<one-to-many class="com.ffe.estimate.model.EstimateCosting" />
+        	<filter condition=":deletedFlagFilterParam != DELETEFLAG"
+				name="deletedFlagFilter" />
+        </bag>
+        <property name="deletedflag" type="string">
+            <column name="DELETEDFLAG" length="1" />
+        </property>
+    </class>
+    
+    
+</hibernate-mapping>

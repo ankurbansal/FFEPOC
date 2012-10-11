@@ -1,0 +1,35 @@
+<project name="MyProject" basedir="." default="default">
+
+	<path id="toolslib">
+<path location="${lib.dir}/dom4j-1.6.1.jar" />
+<path location="${lib.dir}/freemarker.jar" />
+<path location="${lib.dir}/hibernate3.jar" />
+<path location="${lib.dir}/hibernate-tools.jar" />
+<path location="${lib.dir}/log4j-1.2.15.jar" />
+<path location="${lib.dir}/org.apache.commons.logging.jar" />
+<path location="${lib.dir}/slf4j-api-1.5.8.jar" />
+<path location="${lib.dir}/slf4j-log4j12-1.5.8.jar" />
+<path location="${lib.dir}/mysql-connector-java-5.1.13.jar" />
+</path>
+ 
+<taskdef name="hibernatetool" 
+	classname="org.hibernate.tool.ant.HibernateToolTask" 
+     classpathref="toolslib" 
+
+/>
+ 
+<target name="default">
+	
+<hibernatetool   destdir="./generated"  >
+ <classpath>
+  <path location="." />
+  <path location="./classes" />
+ </classpath>
+ 
+ <configuration configurationfile="hibernate.cfg.xml"/>
+ <hbm2java jdk5="true"/>
+ <hbm2hbmxml/>
+ <hbm2dao/>
+ </hibernatetool>
+</target>
+</project>

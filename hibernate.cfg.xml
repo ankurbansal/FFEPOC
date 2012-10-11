@@ -4,9 +4,11 @@
 <hibernate-configuration>
  <session-factory name="hibernateSessionFactory">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://3.209.176.18:3306/</property>
-  <property name="hibernate.default_schema">ffepoc_try1</property>
+  <property name="hibernate.connection.url">jdbc:mysql://3.209.176.18:3306/ffepoc_try1</property>
+  <property name="hibernate.connection.username">igateuser</property>
+  <property name="hibernate.connection.password">123</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-  <mapping class="com.ffe.title.model.Title" resource="com/ffe/title/model/"/>
+  <property name="show_sql">true</property>
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
  </session-factory>
 </hibernate-configuration>

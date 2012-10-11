@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="DigitalService" table="digital_service" catalog="ffepoc_try1">
+        <id name="digiServiceId" type="int">
+            <column name="digi_service_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="digiServName" type="string">
+            <column name="digi_serv_name" length="30" not-null="true" />
+        </property>
+        <property name="digiServCode" type="string">
+            <column name="digi_serv_code" length="30" not-null="true" />
+        </property>
+        <property name="activityId" type="int">
+            <column name="activity_id" not-null="true" />
+        </property>
+        <property name="crtBy" type="string">
+            <column name="crt_by" length="30" not-null="true" />
+        </property>
+        <property name="upBy" type="string">
+            <column name="up_by" length="30" not-null="true" />
+        </property>
+        <property name="delFlag" type="string">
+            <column name="del_flag" length="1" not-null="true" />
+        </property>
+        <property name="desc" type="string">
+            <column name="desc" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

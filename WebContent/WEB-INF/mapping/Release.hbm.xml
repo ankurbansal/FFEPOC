@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Release" table="release" catalog="ffepoc_try1">
+        <id name="releaseid" type="int">
+            <column name="RELEASEID" />
+            <generator class="assigned" />
+        </id>
+        <property name="titleid" type="int">
+            <column name="TITLEID" not-null="true" />
+        </property>
+        <property name="territoryId" type="int">
+            <column name="TerritoryID" not-null="true" />
+        </property>
+        <property name="distributorName" type="string">
+            <column name="distributorName" length="20" />
+        </property>
+        <property name="createdby" type="string">
+            <column name="CREATEDBY" length="20" />
+        </property>
+        <property name="lastupdatedby" type="string">
+            <column name="LASTUPDATEDBY" length="20" />
+        </property>
+        <property name="lastupdateddatetime" type="date">
+            <column name="LASTUPDATEDDATETIME" length="10" />
+        </property>
+        <property name="createddatetime" type="date">
+            <column name="CREATEDDATETIME" length="10" />
+        </property>
+        <property name="deletedflag" type="string">
+            <column name="DELETEDFLAG" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>
