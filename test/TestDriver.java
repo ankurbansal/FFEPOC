@@ -19,7 +19,7 @@ public class TestDriver {
 		TitleService titleService = (TitleService) ctx.getBean("titleService");
 		Title entity = new Title();
 		entity.setWprNumber("asfa32e");
-		entity.setTitleName("jurrassic park");
+		entity.setTitleName("THE OUTLANDERS");
 		entity.setHh(100l);
 		entity.setMm(100l);
 		entity.setSs(100l);

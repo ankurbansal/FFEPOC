@@ -3,6 +3,10 @@
     <wb-module deploy-name="FFEPOC">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF/spring"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="FFEPOC"/>
         <property name="java-output-path" value="/FFEPOC/build/classes"/>
     </wb-module>
