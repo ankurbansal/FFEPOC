@@ -6,9 +6,7 @@ public class ConstantUtil {
 
 	/*Reference Type Codes*/
 	//public static final String PHONE_TYPE_SECONDARY = "SECONDARY";
-	//public static final String PHONE_TYPE_PRIMARY = "PRIMARY";
-
-	
+	//public static final String PHONE_TYPE_PRIMARY = "PRIMARY";	
 	//Hardcoded Default values
 
 	

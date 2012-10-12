@@ -18,10 +18,15 @@
 		<script type="text/javascript" src="<c:url value="/resources/js/spring/Spring-Dojo.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/js/jquery/jquery-1.7.1.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/js/autosuggest/jquery.autosuggest.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/flexigrid/js/flexigrid.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/flexigrid/js/flexigrid.pack.js" />"></script>
 		
 		<link rel="stylesheet" href="<c:url value="/resources/js/autosuggest/jqueryAutoSuggest.css"/>" type="text/css" media="print, projection, screen" />
 		<link href="<c:url value="/resources/css/fsdfe.css"/>" rel="stylesheet" type="text/css" />
-		<link href="resources/css/style.css" rel="stylesheet" type="text/css" />		
+		<link href="resources/css/style.css" rel="stylesheet" type="text/css" />	
+		<link href="resources/flexigrid/css/flexigrid.css" rel="stylesheet" type="text/css" />	
+	    <link href="resources/flexigrid/css/flexigrid.pack.css" rel="stylesheet" type="text/css" />	
+					
 		<style type="text/css">		
 		.InnerFormBoxContainer {			
 			padding: 10px;

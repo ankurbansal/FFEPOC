@@ -106,18 +106,18 @@ public class TitleServiceImpl implements TitleService {
 	public List<Title> findTitle(SearchCriteria searchString) throws GTSException {
 		List<Title> lstTitle = null;
 		System.out.println("coming 2");
-		logger.debug("Entering TitleAdapterImpl.deleteTitle") ;
+		logger.debug("Entering TitleAdapterImpl.findTitle") ;
 		try {
 			lstTitle = titleDAO.searchTitle(searchString);
 			
 		
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			logger.error(" Exception occured in TitleAdapterImpl.deleteTitle :",
+			logger.error(" Exception occured in TitleAdapterImpl.findTitle :",
 					ex.getMessage());
 			throw new GTSException(ex.getMessage(), ex.getCause());
 		}
-		logger.debug("Exiting TitleAdapterImpl.deleteTitle") ;
+		logger.debug("Exiting TitleAdapterImpl.findTitle") ;
 		return lstTitle;
 		
 	}
