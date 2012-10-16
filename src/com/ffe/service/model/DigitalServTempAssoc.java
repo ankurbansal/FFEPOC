@@ -10,9 +10,9 @@ import com.ffe.common.framework.model.AbstractDomain;
  */
 public class DigitalServTempAssoc extends AbstractDomain implements java.io.Serializable {
 
-	private int digiServTemplateAssocId;
-	private int digiServTemplateId;
-	private int digiServiceId;
+	private Long digiServTemplateAssocId;
+	private Long digiServTemplateId;
+	private Long digiServiceId;
 	private String activityCode;
 	private String desc;
 	private DigitalService digitalService;
@@ -29,7 +29,7 @@ public class DigitalServTempAssoc extends AbstractDomain implements java.io.Seri
 	public DigitalServTempAssoc() {
 	}
 
-	public DigitalServTempAssoc(int digiServTemplateId, int digiServiceId,
+	public DigitalServTempAssoc(Long digiServTemplateId, Long digiServiceId,
 			String activityCode,
 			String desc) {
 		this.digiServTemplateId = digiServTemplateId;
@@ -38,27 +38,27 @@ public class DigitalServTempAssoc extends AbstractDomain implements java.io.Seri
 		this.desc = desc;
 	}
 
-	public int getDigiServTemplateAssocId() {
+	public Long getDigiServTemplateAssocId() {
 		return this.digiServTemplateAssocId;
 	}
 
-	public void setDigiServTemplateAssocId(int digiServTemplateAssocId) {
+	public void setDigiServTemplateAssocId(Long digiServTemplateAssocId) {
 		this.digiServTemplateAssocId = digiServTemplateAssocId;
 	}
 
-	public int getDigiServTemplateId() {
+	public Long getDigiServTemplateId() {
 		return this.digiServTemplateId;
 	}
 
-	public void setDigiServTemplateId(int digiServTemplateId) {
+	public void setDigiServTemplateId(Long digiServTemplateId) {
 		this.digiServTemplateId = digiServTemplateId;
 	}
 
-	public int getDigiServiceId() {
+	public Long getDigiServiceId() {
 		return this.digiServiceId;
 	}
 
-	public void setDigiServiceId(int digiServiceId) {
+	public void setDigiServiceId(Long digiServiceId) {
 		this.digiServiceId = digiServiceId;
 	}
 

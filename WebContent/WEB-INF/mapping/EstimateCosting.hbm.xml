@@ -3,24 +3,27 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="EstimateCosting" table="estimate_costing" catalog="ffepoc_try1">
-        <id name="estimateCostingId" type="int">
+    <class name="com.ffe.estimate.model.EstimateCosting" table="estimate_costing" catalog="ffepoc_try1">
+        <id name="estimateCostingId" type="java.lang.Long">
             <column name="estimate_costingID" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
-        <property name="estimateCostTypeId" type="java.lang.Integer">
+        <property name="estimateCostTypeId" type="java.lang.Long">
             <column name="estimate_cost_type_ID" />
         </property>
-        <property name="estimateid" type="int">
-            <column name="estimateid" not-null="true" />
-        </property>
-        <property name="serviceId" type="java.lang.Integer">
+                
+              <many-to-one name="estimate" class="com.ffe.estimate.model.Estimate">
+             <column name="estimateid" not-null="true" />
+            </many-to-one>
+   
+                
+        <property name="serviceId" type="java.lang.Long">
             <column name="serviceID" />
         </property>
         <property name="localCurrentCost" type="big_decimal">
             <column name="localCurrentCost" precision="20" scale="0" />
         </property>
-        <property name="currecySelectedId" type="java.lang.Integer">
+        <property name="currecySelectedId" type="java.lang.Long">
             <column name="currecySelectedID" />
         </property>
         <property name="quantity" type="java.lang.Integer">
@@ -28,6 +31,25 @@
         </property>
         <property name="totalcost" type="big_decimal">
             <column name="totalcost" precision="22" scale="0" />
+        </property>
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+           
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.String">
+            <column name="LASTUPDATEDBY" />
+        </property>
+        <property name="lastUpdatedDateTime" type="java.util.Date">
+            <column name="LASTUPDATEDDATETIME" />
+        </property>
+        <property name="createdDateTime" type="java.util.Date">
+            <column name="CREATEDDATETIME" />
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="DELETEDFLAG" />
+        </property>
+        <property name="desc" type="string">
+            <column name="description" length="200"/>
         </property>
     </class>
 </hibernate-mapping>

@@ -1,9 +1,14 @@
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ffe.common.exception.GTSException;
+import com.ffe.estimate.model.Estimate;
+import com.ffe.estimate.model.EstimateCosting;
+import com.ffe.estimate.service.EstimateService;
 import com.ffe.service.model.DigitalCostsVendor;
 import com.ffe.service.model.DigitalServTemplate;
 import com.ffe.service.model.DigitalService;
@@ -40,6 +45,7 @@ public class TestDriver {
 		//Digital Cost test
 		
 		DigitalCostService digiCostService = (DigitalCostService)ctx.getBean("digitalcostservice");
+		EstimateService estimateService = (EstimateService)ctx.getBean("estimateService");
 		try
 		{
 		/*List<DigitalService> serviceLst = digiCostService.lstAllService();
@@ -75,6 +81,7 @@ public class TestDriver {
 				System.out.println(digiServ.getDigiServName());
 				System.out.println();
 			}*/
+			
 			/*List<DigitalServTemplate> serviceLst = digiCostService.lstServiceTemplateByCostType("Digital Feature");
 			for(DigitalServTemplate digiServ:serviceLst)
 			{
@@ -89,16 +96,48 @@ public class TestDriver {
 			
 			//Get Rate Card for Service
 			
-			/*int rate_card = digiCostService.getRateCardforServicebasedonVendor("Talent_Fee","3",1);
+			/*Long rate_card = digiCostService.getRateCardforServicebasedonVendor("Talent_Fee","3",1l);
 			System.out.println("RateCard\t"+rate_card);*/
 			
 			//List Service based on CostType
-			List<DigitalService> serviceLst = digiCostService.lstServiceByCostType(3);
+			/*List<DigitalService> serviceLst = digiCostService.lstServiceByCostType(3l);
 			for(DigitalService digiServ:serviceLst)
 			{
 				System.out.println(digiServ.getDigiServName());
 				
-			}
+			}*/
+			
+			
+			
+			/*Estimate estimate = new Estimate();
+			estimate.setReleaseId(1l);
+			
+			estimate.setDeletedFlag(false);
+			
+			EstimateCosting estCosting = new EstimateCosting();
+			estCosting.setEstimateCostTypeId(1l);
+			estCosting.setServiceId(1l);
+			estCosting.setLocalCurrentCost(new BigDecimal(1000));
+			estCosting.setQuantity(2);
+			estCosting.setEstimate(estimate);
+			List<EstimateCosting> lstEstCosting = new ArrayList<EstimateCosting>();
+			lstEstCosting.add(estCosting);
+			
+			estimate.setLstEstimateCosting(lstEstCosting);
+			
+			
+			Estimate est = estimateService.saveEstimate(estimate);
+			System.out.println("Inserted Successfully\t"+est.getEstimateId());*/
+			
+			/*Estimate est = estimateService.getEstimate(4l);
+			System.out.println("Status\t"+est.getEstCostStaId());
+			List<EstimateCosting> lstEst = est.getLstEstimateCosting();
+			System.out.println("List Size is\t"+lstEst.size());
+			for(EstimateCosting es:lstEst)
+			{
+				System.out.println("TotCost\t"+es.getTotalcost());
+			}*/
+			
 			
 		}
 		catch(GTSException gts)

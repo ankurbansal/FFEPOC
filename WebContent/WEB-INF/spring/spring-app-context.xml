@@ -20,10 +20,14 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		class="com.ffe.service.service.impl.DigitalCostsServiceImpl">
 		<property name="digitalCostVendorDao" ref="digitalCostVendorDao" />
 		<property name="digitalCostServiceDao" ref="digitalCostServiceDao" />
-		<property name="digitalCostServiceTemplateDao" ref="digitalCostServiceTemplateDao" />
-		
-		
+		<property name="digitalCostServiceTemplateDao" ref="digitalCostServiceTemplateDao" />	
 	</bean>
 	
+		<bean id="estimateService"
+		class="com.ffe.estimate.service.impl.EstimateServiceImpl">
+		<property name="estimateDAO" ref="estimateDAO" />
+	</bean>
+	
+		
 </beans>
 

@@ -4,32 +4,32 @@
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="Region" table="region" catalog="ffepoc_try1">
-        <id name="regionid" type="int">
+        <id name="regionid" type="java.lang.Long">
             <column name="REGIONID" />
             <generator class="assigned" />
         </id>
-        <property name="name" type="string">
+        <property name="name" type="java.lang.String">
             <column name="name" length="20" />
         </property>
-        <property name="code" type="string">
+        <property name="code" type="java.lang.String">
             <column name="code" length="10" />
         </property>
-        <property name="description" type="string">
-            <column name="description" length="20" />
+        <property name="description" type="java.lang.String">
+            <column name="description" length="200" />
         </property>
-        <property name="createdby" type="string">
+        <property name="createdby" type="java.lang.String">
             <column name="CREATEDBY" length="20" />
         </property>
-        <property name="lastupdatedby" type="string">
+        <property name="lastupdatedby" type="java.lang.String">
             <column name="LASTUPDATEDBY" length="20" />
         </property>
-        <property name="lastupdateddatetime" type="date">
+        <property name="lastupdateddatetime" type="java.util.Date">
             <column name="LASTUPDATEDDATETIME" length="10" />
         </property>
-        <property name="createddatetime" type="date">
+        <property name="createddatetime" type="java.util.Date">
             <column name="CREATEDDATETIME" length="10" />
         </property>
-        <property name="deletedflag" type="string">
+        <property name="deletedflag" type="java.lang.String">
             <column name="DELETEDFLAG" length="1" />
         </property>
     </class>

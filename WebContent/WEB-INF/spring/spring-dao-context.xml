@@ -11,6 +11,9 @@
 		<property name="sessionFactory" ref="appSessionFactory" />		
 	</bean>
 	
+	<bean id="estimateDAO" class="com.ffe.estimate.dao.hibernate.EstimateDAOImpl">
+		<property name="sessionFactory" ref="appSessionFactory" />		
+	</bean>
 
 		<bean id="digitalCostVendorDao" class="com.ffe.service.dao.hibernate.DigitalCostsVendorDaoImpl">
 		<property name="sessionFactory" ref="appSessionFactory" />		

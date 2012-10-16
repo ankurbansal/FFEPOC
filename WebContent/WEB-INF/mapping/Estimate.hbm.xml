@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="Estimate" table="estimate" catalog="ffepoc_try1">
-        <id name="estimateId" type="int">
+    <class name="com.ffe.estimate.model.Estimate" table="estimate" catalog="ffepoc_try1">
+        <id name="estimateId" type="java.lang.Long">
             <column name="estimateID" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
-        <property name="releaseId" type="java.lang.Integer">
+        <property name="releaseId" type="java.lang.Long">
             <column name="releaseID" />
         </property>
         <property name="totalUscost" type="big_decimal">
@@ -17,28 +17,38 @@
         <property name="totalLocalCost" type="big_decimal">
             <column name="TotalLocalCost" precision="20" scale="0" />
         </property>
-        <property name="createdby" type="string">
-            <column name="CREATEDBY" length="20" />
-        </property>
-        <property name="lastupdatedby" type="string">
-            <column name="LASTUPDATEDBY" length="20" />
-        </property>
-        <property name="lastupdateddatetime" type="date">
-            <column name="LASTUPDATEDDATETIME" length="10" />
-        </property>
-        <property name="createddatetime" type="date">
-            <column name="CREATEDDATETIME" length="10" />
-        </property>
+       
         
-        <bag name="lstEstimateCosting" cascade="all" inverse="true" >
-        <key column="ESTIMATE_ID"/>
+        <bag name="lstEstimateCosting" cascade="all" inverse="true" lazy="false">
+        <key column="estimateid"/>
         	<one-to-many class="com.ffe.estimate.model.EstimateCosting" />
-        	<filter condition=":deletedFlagFilterParam != DELETEFLAG"
+        	<filter condition=":deletedFlagFilterParam != DELETEDFLAG"
 				name="deletedFlagFilter" />
+        
         </bag>
         
-        <property name="deletedflag" type="string">
-            <column name="DELETEDFLAG" length="1" />
+        <property name="estCostStaId" type="java.lang.Long">
+            <column name="est_cost_sta_id" />
+        </property>
+        
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+           
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.String">
+            <column name="LASTUPDATEDBY" />
+        </property>
+        <property name="lastUpdatedDateTime" type="java.util.Date">
+            <column name="LASTUPDATEDDATETIME" />
+        </property>
+        <property name="createdDateTime" type="java.util.Date">
+            <column name="CREATEDDATETIME" />
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="DELETEDFLAG" />
+        </property>
+        <property name="desc" type="string">
+            <column name="description" length="200" />
         </property>
     </class>
     

@@ -15,13 +15,29 @@ public class Estimate extends AbstractDomain implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -4744105404866811257L;
-	private int estimateId;
-	private Integer releaseId;
+	private Long estimateId;
+	private Long releaseId;
 	private BigDecimal totalUscost;
 	private BigDecimal totalLocalCost;
-	private String createdby;
 	private List<EstimateCosting> lstEstimateCosting;
+	private Long estCostStaId;
+	private String desc;
 
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public Long getEstCostStaId() {
+		return estCostStaId;
+	}
+
+	public void setEstCostStaId(Long estCostStaId) {
+		this.estCostStaId = estCostStaId;
+	}
 
 	public List<EstimateCosting> getLstEstimateCosting() {
 		return lstEstimateCosting;
@@ -34,34 +50,33 @@ public class Estimate extends AbstractDomain implements java.io.Serializable {
 	public Estimate() {
 	}
 
-	public Estimate(int estimateId) {
+	public Estimate(Long estimateId) {
 		this.estimateId = estimateId;
 	}
 
-	public Estimate(int estimateId, Integer releaseId, BigDecimal totalUscost,
+	public Estimate(Long estimateId, Long releaseId, BigDecimal totalUscost,
 			BigDecimal totalLocalCost, String createdby, String lastupdatedby,
 			Date lastupdateddatetime, Date createddatetime, String deletedflag) {
 		this.estimateId = estimateId;
 		this.releaseId = releaseId;
 		this.totalUscost = totalUscost;
 		this.totalLocalCost = totalLocalCost;
-		this.createdby = createdby;
 	
 	}
 
-	public int getEstimateId() {
+	public Long getEstimateId() {
 		return this.estimateId;
 	}
 
-	public void setEstimateId(int estimateId) {
+	public void setEstimateId(Long estimateId) {
 		this.estimateId = estimateId;
 	}
 
-	public Integer getReleaseId() {
+	public Long getReleaseId() {
 		return this.releaseId;
 	}
 
-	public void setReleaseId(Integer releaseId) {
+	public void setReleaseId(Long releaseId) {
 		this.releaseId = releaseId;
 	}
 
@@ -81,12 +96,6 @@ public class Estimate extends AbstractDomain implements java.io.Serializable {
 		this.totalLocalCost = totalLocalCost;
 	}
 
-	public String getCreatedby() {
-		return this.createdby;
-	}
 
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
-	}
 
 }

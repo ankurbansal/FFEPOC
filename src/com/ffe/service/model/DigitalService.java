@@ -12,14 +12,14 @@ public class DigitalService extends AbstractDomain implements java.io.Serializab
 	private Long digiServiceId;
 	private String digiServName;
 	private String digiServCode;
-	private int activityId;
+	private Long activityId;
 	private String desc;
 
 	public DigitalService() {
 	}
 
 	public DigitalService(Long digiServiceId, String digiServName,
-			String digiServCode, int activityId, String crtBy, String upBy,
+			String digiServCode, Long activityId, String crtBy, String upBy,
 			String delFlag, String desc) {
 		this.digiServiceId = digiServiceId;
 		this.digiServName = digiServName;
@@ -54,11 +54,11 @@ public class DigitalService extends AbstractDomain implements java.io.Serializab
 		this.digiServCode = digiServCode;
 	}
 
-	public int getActivityId() {
+	public Long getActivityId() {
 		return this.activityId;
 	}
 
-	public void setActivityId(int activityId) {
+	public void setActivityId(Long activityId) {
 		this.activityId = activityId;
 	}
 

@@ -10,10 +10,10 @@ import com.ffe.common.framework.model.AbstractDomain;
  */
 public class DigitalCostsVendorService extends AbstractDomain implements java.io.Serializable {
 
-	private int digiVendServId;
+	private Long digiVendServId;
 	private String serviceName;
-	private int vendorId;
-	private int unitCost;
+	private Long vendorId;
+	private Long unitCost;
 	private String vendServCode;
 	private String digiServCode;
 	private String activityCode;
@@ -22,8 +22,8 @@ public class DigitalCostsVendorService extends AbstractDomain implements java.io
 	public DigitalCostsVendorService() {
 	}
 
-	public DigitalCostsVendorService(int digiVendServId, String serviceName,
-			int vendorId, int unitCost, String vendServCode,
+	public DigitalCostsVendorService(Long digiVendServId, String serviceName,
+			Long vendorId, Long unitCost, String vendServCode,
 			String digiServCode, String activityCode, String crtBy,
 			String uptBy, String delFlag, String desc) {
 		this.digiVendServId = digiVendServId;
@@ -36,11 +36,11 @@ public class DigitalCostsVendorService extends AbstractDomain implements java.io
 		this.desc = desc;
 	}
 
-	public int getDigiVendServId() {
+	public Long getDigiVendServId() {
 		return this.digiVendServId;
 	}
 
-	public void setDigiVendServId(int digiVendServId) {
+	public void setDigiVendServId(Long digiVendServId) {
 		this.digiVendServId = digiVendServId;
 	}
 
@@ -52,19 +52,19 @@ public class DigitalCostsVendorService extends AbstractDomain implements java.io
 		this.serviceName = serviceName;
 	}
 
-	public int getVendorId() {
+	public Long getVendorId() {
 		return this.vendorId;
 	}
 
-	public void setVendorId(int vendorId) {
+	public void setVendorId(Long vendorId) {
 		this.vendorId = vendorId;
 	}
 
-	public int getUnitCost() {
+	public Long getUnitCost() {
 		return this.unitCost;
 	}
 
-	public void setUnitCost(int unitCost) {
+	public void setUnitCost(Long unitCost) {
 		this.unitCost = unitCost;
 	}
 

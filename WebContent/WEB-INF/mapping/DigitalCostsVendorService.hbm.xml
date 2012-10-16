@@ -4,17 +4,17 @@
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ffe.service.model.DigitalCostsVendorService" table="digital_costs_vendor_service" catalog="ffepoc_try1">
-        <id name="digiVendServId" type="int">
+        <id name="digiVendServId" type="java.lang.Long">
             <column name="digi_vend_serv_id" />
             <generator class="assigned" />
         </id>
         <property name="serviceName" type="string">
             <column name="service_name" length="200" not-null="true" />
         </property>
-        <property name="vendorId" type="int">
+        <property name="vendorId" type="java.lang.Long">
             <column name="vendor_id" not-null="true" />
         </property>
-        <property name="unitCost" type="int">
+        <property name="unitCost" type="java.lang.Long">
             <column name="unit_cost" not-null="true" />
         </property>
         <property name="vendServCode" type="string">
@@ -43,7 +43,7 @@
             <column name="DELETEDFLAG" />
         </property>
         <property name="desc" type="string">
-            <column name="desc" length="200" not-null="true" />
+            <column name="description" length="200" />
         </property>
     </class>
 </hibernate-mapping>

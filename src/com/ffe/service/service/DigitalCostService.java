@@ -18,6 +18,6 @@ public interface DigitalCostService {
 	public List<DigitalService> lstServicebyTemplate(Long templateid) throws GTSException;
 	public List<DigitalServTemplate> lstServiceTemplateByCostType(String estimateCosttype) throws GTSException;
 	public List<DigitalCostsVendor> lstVendorBasedonService(String serviceCode,String costType) throws GTSException;
-	public int getRateCardforServicebasedonVendor(String serviceCode,String costType,int vendor_id) throws GTSException;
-	public List<DigitalService> lstServiceByCostType(int estimateCosttype) throws GTSException;
+	public Long getRateCardforServicebasedonVendor(String serviceCode,String costType,Long vendor_id) throws GTSException;
+	public List<DigitalService> lstServiceByCostType(Long estimateCosttype) throws GTSException;
 }

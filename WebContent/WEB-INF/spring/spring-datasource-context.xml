@@ -49,6 +49,8 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 				<value>mapping/DigitalServTemplate.hbm.xml</value>
 				<value>mapping/DigitalServTempAssoc.hbm.xml</value>
 				<value>mapping/EstimateCostType.hbm.xml</value>
+				<value>mapping/Estimate.hbm.xml</value>
+				<value>mapping/EstimateCosting.hbm.xml</value>
 				
 			</list>
 		</property>

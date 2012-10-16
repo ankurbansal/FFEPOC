@@ -14,7 +14,7 @@
         <property name="digiServCode" type="string">
             <column name="digi_serv_code" length="30" not-null="true" />
         </property>
-        <property name="activityId" type="int">
+        <property name="activityId" type="java.lang.Long">
             <column name="activity_id" not-null="true" />
         </property>
          <property name="createdBy" type="java.lang.String">
@@ -34,7 +34,7 @@
             <column name="DELETEDFLAG" />
         </property>
         <property name="desc" type="string">
-            <column name="desc" length="30" not-null="true" />
+            <column name="description" length="200" />
         </property>
     </class>
 </hibernate-mapping>
