@@ -18,15 +18,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JBOSS"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/commons-logging.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/jta.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/dom4j-1.5.2.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/commons-collections.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/714353/My Documents/Downloads/hsqldb-1.8.0.5.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/servlet-api.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/servlet.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/antlr.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/activation.jar"/>
-	<classpathentry kind="lib" path="D:/ABU Transfer/DeskTop Folder Jun 20/MY JAR/ant-1.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
