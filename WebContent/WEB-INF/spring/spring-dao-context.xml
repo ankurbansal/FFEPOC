@@ -37,5 +37,9 @@
 	<property name="dataSource" ref="appDataSource"/>
 	</bean>
 	 
+	 
+	 <bean id="userDao" class="com.ffe.app.dao.hibernate.UserDaoImpl">
+	 <property name="sessionFactory" ref="appSessionFactory"/>
+	 </bean>
 	
 </beans>
