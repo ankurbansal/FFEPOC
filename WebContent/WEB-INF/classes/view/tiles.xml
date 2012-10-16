@@ -4,15 +4,28 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions> 
- <definition name="tiles_general_layout" template="/WEB-INF/jsp/general/tiles_template.jsp">
+  <definition name="tiles_general_layout" template="/WEB-INF/jsp/general/tiles_template.jsp">
       <put-attribute name="header" value="/WEB-INF/jsp/general/header_tile.jsp"/>
       <put-attribute name="menu" value="/WEB-INF/jsp/general/tabbed_menu_tile.jsp"/>
       <put-attribute name="innerLeftContainer" value="/WEB-INF/jsp/general/left_menu_tile.jsp"/>    
-      <put-attribute name="innerRightContainer" value="/WEB-INF/jsp/add_title_form.jsp"/>           
+      <put-attribute name="innerRightContainer" value=""/>           
       <put-attribute name="footer" value="/WEB-INF/jsp/general/footer_tile.jsp"/>
-  </definition>
+   </definition>  
   
    <definition name="view_title" extends="tiles_general_layout">
-   		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/view_title.jsp"/>
+   		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/view_title_details.jsp"/>
    </definition>
+   
+    <definition name="add_title" extends="tiles_general_layout">
+   		  <put-attribute name="innerRightContainer" value="/WEB-INF/jsp/title_form.jsp"/> 
+   </definition>
+   
+   <definition name="edit_title" extends="tiles_general_layout">
+   		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/title_form.jsp"/>
+   </definition>
+   
+   <definition name="title_search_results" extends="tiles_general_layout">
+   		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/title_results.jsp"/>   		
+   </definition>
+   
 </tiles-definitions>

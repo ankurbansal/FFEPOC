@@ -1,5 +1,7 @@
 package com.ffe.title.web.tiles;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ffe.common.exception.GTSException;
+import com.ffe.title.message.SearchCriteria;
 import com.ffe.title.model.Title;
 import com.ffe.title.service.TitleService;
 
@@ -40,8 +43,7 @@ public class FilmTilesController {
 			
 			Title title_created =  titleService.saveTitle(title);		
 			model.addAttribute("title", title_created);	
-			System.out.println("------------>"+title_created);
-			
+			model.addAttribute("searchcriteria", new SearchCriteria());
 		} catch(Exception e){
 			log.error("Exception Occured in FilmTilesController.addTitle : ",e);
 			throw new GTSException(e.getMessage(),e.getCause());
@@ -51,34 +53,49 @@ public class FilmTilesController {
 	
 	
 	@RequestMapping(value = "/searchtitle")
-	public String searchTitle(@ModelAttribute(value="title")Title title, BindingResult result,
+	public String searchTitle(@ModelAttribute(value="searchcriteria")SearchCriteria sc, BindingResult result,
 			Model model, HttpServletRequest request) throws GTSException{		
-		log.info("Inside FilmTilesController.addTitle");
-		try {			
-			titleService.saveTitle(title);		
-			System.out.println("title id "+ title);
-			
+		log.info("Inside FilmTilesController.searchTitle");
+		try {		
+			List<Title> titles_list = titleService.findTitle(sc);		
+			model.addAttribute("titlesList", titles_list);		
+			model.addAttribute("searchcriteria", sc);
 		} catch(Exception e){
-			log.error("Exception Occured in FilmTilesController.addTitle : ",e);
+			log.error("Exception Occured in FilmTilesController.searchtitle : ",e);
 			throw new GTSException(e.getMessage(),e.getCause());
 		}
-		return "title_results";
+		return "title_search_results";
 	}
 	
 	
 	@RequestMapping(value = "/edittitle")
-	public String edittitle(@RequestParam(value = "titleId") long titleID, Model model, HttpServletRequest request) throws GTSException{		
-		log.info("Inside FilmTilesController.addTitle");
+	public String editTitle(@RequestParam(value = "titleId") long titleId, Model model, HttpServletRequest request) throws GTSException{		
+		log.info("Inside FilmTilesController.editTitle");
 		try {			
-			Title title = titleService.getTitle(titleID);
-			model.addAttribute("title", title);					
+			Title title = titleService.getTitle(titleId);
+			model.addAttribute("title", title);	
+			model.addAttribute("searchcriteria", new SearchCriteria());
 		} catch(Exception e){
-			log.error("Exception Occured in FilmTilesController.addTitle : ",e);
+			log.error("Exception Occured in FilmTilesController.editTitle : ",e);
+			throw new GTSException(e.getMessage(),e.getCause());
+		}
+		return "edit_title";
+	}
+
+	
+	@RequestMapping(value = "/viewtitle")
+	public String viewTitle(@RequestParam(value = "titleId") long titleId, Model model, HttpServletRequest request) throws GTSException{		
+		log.info("Inside FilmTilesController.viewtitle");
+		try {			
+			Title title = titleService.getTitle(titleId);
+			model.addAttribute("title", title);	
+			model.addAttribute("searchcriteria", new SearchCriteria());
+		} catch(Exception e){
+			log.error("Exception Occured in FilmTilesController.viewtitle : ",e);
 			throw new GTSException(e.getMessage(),e.getCause());
 		}
 		return "view_title";
 	}
-
 
 
 

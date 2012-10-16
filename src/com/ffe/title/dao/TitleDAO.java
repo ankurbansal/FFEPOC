@@ -12,11 +12,13 @@ import com.ffe.title.model.Title;
 
 public interface TitleDAO extends GenericDao<Title> {
 
-	public List<Title> searchTitle(List<SearchCriteria> searchCriteriaList)	throws GTSException;
+	
 	
 	public List<Title> findTitle(String searchString)throws GTSException;
 			
 	public Boolean isTitlePresent(long TitleId, String titleName, String wpr)throws GTSException;
 		
 	public boolean deleteTitle(Title Title)	throws GTSException;
+
+	public List<Title> searchTitle(SearchCriteria searchCriteria)	throws GTSException;
 }

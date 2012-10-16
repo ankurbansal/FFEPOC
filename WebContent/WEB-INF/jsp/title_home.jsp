@@ -10,7 +10,7 @@
 		<table
 			style="font-style: normal; font-size: 14px; font-family: Verdana, Arial, Sans-Serif; font-weight: normal">
 			<tr>
-				<td><b><fmt:message key="FFE.welcomenote" /></b></td>
+				<td><b><fmt:message key="FFE.welcomenote"/></b></td>
 			</tr>	
 			<tr>
 				<td><a href="./helloAjax">Test Simple AJAX Using Spring - JQuery</a></td>

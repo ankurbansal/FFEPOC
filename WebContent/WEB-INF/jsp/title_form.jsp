@@ -1,5 +1,10 @@
 <%@include file="/WEB-INF/jsp/include.jsp"%>
-<form:form modelAttribute="title" action="./addtitle" method="POST">
+<script>
+function submitTitleForm(){
+	document.getElementById("title_form").submit();	
+}
+</script>
+<form:form modelAttribute="title" action="./addtitle" id="title_form" method="POST">
 	<form:errors path="*" cssClass="error"  element="div"/>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	  <tr>
@@ -16,7 +21,7 @@
 	                <td width="85%">&nbsp;</td>
 	              </tr>
 	            </table></td>
-	          </tr>
+	          </tr> 
 	          <tr>
 	            <td height="271" align="left" valign="top" class="table1"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 	              <tr>
@@ -88,14 +93,14 @@
 								<form:option value="0" label="" />								
 								<form:option value="HT" label="Haiti" />
 								<form:option value="HM" label="Heard and Mc Donald Islands" />
-								<form:option value="VA" label="Holy See (Vatican City State)" />
+								<form:option value="VA" label="Holy See" />
 								<form:option value="HN" label="Honduras" />
 								<form:option value="HK" label="Hong Kong" />
 								<form:option value="HU" label="Hungary" />
 								<form:option value="IS" label="Iceland" />
 								<form:option value="IN" label="India" />
 								<form:option value="ID" label="Indonesia" />
-								<form:option value="IR" label="Iran (Islamic Republic of)" />
+								<form:option value="IR" label="Iran" />
 								<form:option value="IQ" label="Iraq" />
 								<form:option value="IE" label="Ireland" />
 								<form:option value="IL" label="Israel" />
@@ -177,10 +182,8 @@
 	              </tr>
 	              <tr>
 	                <td align="center" valign="top"><table width="20%" border="0" cellspacing="0" cellpadding="0">
-	                  <tr>
-	                    <td align="center" valign="top"><img src="resources/images/index_18.gif" width="55" height="23" /></td>
-	                    <td align="center" valign="top"><img src="resources/images/index_20.gif" width="55" height="23" /></td>
-	                    <td align="center" valign="top"><input type="submit" value="Save Title" /></td>
+	                  <tr>	                    
+	                    <td align="center" valign="top"><a href="#" onclick="submitTitleForm();"><img src="resources/images/index_20.gif" width="55" height="23"/></a></td>	                    
 	                  </tr>
 	                </table></td>
 	              </tr>

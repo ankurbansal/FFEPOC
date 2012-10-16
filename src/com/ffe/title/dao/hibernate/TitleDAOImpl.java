@@ -32,30 +32,31 @@ public class TitleDAOImpl extends GenericHibernateDAO<Title> implements
 	}
 
 	@Override
-	public List<Title> searchTitle(List<SearchCriteria> searchCriteriaList)
+	public List<Title> searchTitle(SearchCriteria searchCriteriaList)
 			throws GTSException {
 		logger.debug("Entering TitleDAOImpl.searchTitle");
+		System.out.println("coming 3");
 		List<Title> Titles = null;
-		SearchCriteria value = searchCriteriaList.get(0);
+		SearchCriteria value = searchCriteriaList;
 		String wprNumber="";
 		String titleName="";
-		if( "WPN".equalsIgnoreCase(value.getFieldName())){
+		if( ConstantUtil.WPR.equalsIgnoreCase(value.getFieldName())){
 			wprNumber=value.getFieldValue();
 			}
-		if( "TITLENAME".equalsIgnoreCase(value.getFieldName())){
+		if( ConstantUtil.TITLENAME.equalsIgnoreCase(value.getFieldName())){
 			titleName=value.getFieldValue();
 			}
-		
-	
+		System.out.println("? "+ wprNumber + ""+ titleName );
 		try {
 			Titles = (List<Title>) getSession()
-					.createQuery(
-							" from com.ffe.title.model.Title Title where upper(wprNumber) like :wprNumber or upper(titleName) like :titleName")
+					.createQuery(" from com.ffe.title.model.Title Title where " +
+							"upper(wprNumber) = :wprNumber or upper(titleName) like :titleName")
 					.setParameter("wprNumber",
 							"%" + wprNumber.toUpperCase() + "%")
 					.setParameter("titleName",
 							"%" + titleName.toUpperCase() + "%").list();
 		} catch (DataAccessException ex) {
+			ex.printStackTrace();
 			logger.error("Exception in AddressDAOImpl.searchTitle", ex);
 			throw new GTSException(ex.getMessage(), ex.getCause());
 		}
