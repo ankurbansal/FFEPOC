@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2012 11:23:45 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ffe.common.framework.model.UserProfile" table="user" >
+        <id name="userid" type="int">
+            <column name="userid" />
+            <generator class="increment" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="20" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="20" not-null="true" />
+        </property>
+        <property name="emailid" type="string">
+            <column name="emailid" length="30" not-null="true" />
+        </property>
+        <property name="uniqueId" type="int">
+            <column name="uniqueId" not-null="true" />
+        </property>
+        <property name="territoryId" type="int">
+            <column name="territoryID" not-null="true" />
+        </property>
+        <property name="lastUpdatedBy" type="string">
+            <column name="lastUpdatedBy" length="20" not-null="true" />
+        </property>
+        <property name="lastUpdatedDateTime" type="date">
+            <column name="lastUpdatedDateTime" length="10" not-null="true" />
+        </property>
+        <property name="createdDateTime" type="date">
+            <column name="createdDateTime" length="10" not-null="true" />
+        </property>
+        <property name="deletedFlag" type="string">
+            <column name="deletedFlag" length="1" not-null="true" />
+        </property>
+        <property name="moneyFormatterId" type="int">
+            <column name="MoneyFormatterID" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

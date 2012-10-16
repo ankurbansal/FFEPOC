@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.ldap.userdetails.LdapUserDetails;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserProfile implements LdapUserDetails{
+public class UserProfile extends AbstractDomain implements UserDetails{
 
 	
 	@Override
