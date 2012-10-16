@@ -12,6 +12,17 @@
 	</bean>
 	
 
+		<bean id="digitalCostVendorDao" class="com.ffe.service.dao.hibernate.DigitalCostsVendorDaoImpl">
+		<property name="sessionFactory" ref="appSessionFactory" />		
+		</bean>
+	
+		<bean id="digitalCostServiceDao" class="com.ffe.service.dao.hibernate.DigitalCostsServiceDaoImpl">
+		<property name="sessionFactory" ref="appSessionFactory" />		
+	</bean>
+	
+		<bean id="digitalCostServiceTemplateDao" class="com.ffe.service.dao.hibernate.DigitalCostsServiceTemplateDaoImpl">
+		<property name="sessionFactory" ref="appSessionFactory" />		
+	</bean>
 	
 	 <bean id="nativeJdbcExtractor"
       class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"

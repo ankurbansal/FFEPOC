@@ -29,12 +29,14 @@
         <property name="createddatetime" type="date">
             <column name="CREATEDDATETIME" length="10" />
         </property>
+        
         <bag name="lstEstimateCosting" cascade="all" inverse="true" >
         <key column="ESTIMATE_ID"/>
         	<one-to-many class="com.ffe.estimate.model.EstimateCosting" />
         	<filter condition=":deletedFlagFilterParam != DELETEFLAG"
 				name="deletedFlagFilter" />
         </bag>
+        
         <property name="deletedflag" type="string">
             <column name="DELETEDFLAG" length="1" />
         </property>

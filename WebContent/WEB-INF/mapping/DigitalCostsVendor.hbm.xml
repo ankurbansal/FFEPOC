@@ -3,22 +3,29 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="DigitalCostsVendor" table="digital_costs_vendor" >
-        <id name="vendorId" type="int">
+    <class name="com.ffe.service.model.DigitalCostsVendor" table="digital_costs_vendor" >
+        <id name="vendorId" type="java.lang.Long">
             <column name="vendor_id" />
             <generator class="assigned" />
         </id>
         <property name="vendorName" type="string">
             <column name="vendor_name" length="200" not-null="true" />
         </property>
-        <property name="crtBy" type="string">
-            <column name="crt_by" length="200" not-null="true" />
+         <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+           
         </property>
-        <property name="uptBy" type="string">
-            <column name="upt_by" length="200" not-null="true" />
+        <property name="lastUpdatedBy" type="java.lang.String">
+            <column name="LASTUPDATEDBY" />
         </property>
-        <property name="delFlag" type="string">
-            <column name="del_flag" length="1" not-null="true" />
+        <property name="lastUpdatedDateTime" type="java.util.Date" >
+            <column name="LASTUPDATEDDATETIME" not-null="true" />
+        </property>
+        <property name="createdDateTime" type="java.util.Date">
+            <column name="CREATEDDATETIME" not-null="true"/>
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="DELETEDFLAG" />
         </property>
         <property name="desc" type="string">
             <column name="desc" length="200" not-null="true" />

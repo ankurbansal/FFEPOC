@@ -21,7 +21,7 @@ public class Title extends AbstractDomain {
 				+ ", ss=" + ss + ", aspectRatio=" + aspectRatio
 				+ ", languageId=" + languageId + ", ActiveFlag=" + ActiveFlag
 				+ ", rightsNotification=" + rightsNotification + ", comments="
-				+ comments + "]";
+				+ comments + ", lastUpdateDateandTime ="+super.getLastUpdatedDateTime() +" ]";
 	}
 	private Long titleId;
 	private String titleName;

@@ -3,25 +3,40 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="DigitalServTemplate" table="digital_serv_template" catalog="ffepoc_try1">
-        <id name="digiServTempId" type="int">
+    <class name="com.ffe.service.model.DigitalServTemplate" table="digital_serv_template" catalog="ffepoc_try1">
+        <id name="digiServTempId" type="java.lang.Long">
             <column name="digi_serv_temp_id" />
             <generator class="identity" />
         </id>
         <property name="digiServTempName" type="string">
             <column name="digi_serv_temp_name" length="200" not-null="true" />
         </property>
-        <property name="crtBy" type="string">
-            <column name="crt_by" length="200" not-null="true" />
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+           
         </property>
-        <property name="uptBy" type="string">
-            <column name="upt_by" length="200" not-null="true" />
+        <property name="lastUpdatedBy" type="java.lang.String">
+            <column name="LASTUPDATEDBY" />
         </property>
-        <property name="delFlag" type="string">
-            <column name="del_flag" length="1" not-null="true" />
+        <property name="lastUpdatedDateTime" type="java.util.Date">
+            <column name="LASTUPDATEDDATETIME" />
+        </property>
+        <property name="createdDateTime" type="java.util.Date">
+            <column name="CREATEDDATETIME" />
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="DELETEDFLAG" />
         </property>
         <property name="desc" type="string">
             <column name="desc" length="200" not-null="true" />
         </property>
+        
+     <bag name="digitalServTempAssoclst" cascade="all" inverse="true" >
+        <key column="digi_serv_template_id"/>
+        	<one-to-many class="com.ffe.service.model.DigitalServTempAssoc" />
+        	<filter condition=":deletedFlagFilterParam != DELETEDFLAG"
+				name="deletedFlagFilter" />
+        </bag>
     </class>
+    
 </hibernate-mapping>

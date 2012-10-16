@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="EstimateCostType" table="estimate_cost_type" catalog="ffepoc_try1">
+    <class name="com.ffe.estimate.model.EstimateCostType" table="estimate_cost_type" catalog="ffepoc_try1">
         <id name="estimateCostId" type="int">
             <column name="estimate_cost_ID" />
             <generator class="assigned" />

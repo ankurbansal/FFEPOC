@@ -59,9 +59,9 @@
         <property name="comments" type="java.lang.String">
             <column name="COMMENTS" />
         </property>
-          <property name="createdBy" type="java.lang.String">
+        
+        <property name="createdBy" type="java.lang.String">
             <column name="CREATEDBY" />
-           
         </property>
         <property name="lastUpdatedBy" type="java.lang.String">
             <column name="LASTUPDATEDBY" />

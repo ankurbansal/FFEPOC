@@ -16,5 +16,14 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		<property name="titleDAO" ref="titleDAO" />
 	</bean>
 	
+		<bean id="digitalcostservice"
+		class="com.ffe.service.service.impl.DigitalCostsServiceImpl">
+		<property name="digitalCostVendorDao" ref="digitalCostVendorDao" />
+		<property name="digitalCostServiceDao" ref="digitalCostServiceDao" />
+		<property name="digitalCostServiceTemplateDao" ref="digitalCostServiceTemplateDao" />
+		
+		
+	</bean>
+	
 </beans>
 
