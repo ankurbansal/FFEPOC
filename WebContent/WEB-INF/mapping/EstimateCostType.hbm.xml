@@ -4,23 +4,23 @@
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ffe.estimate.model.EstimateCostType" table="estimate_cost_type" catalog="ffepoc_try1">
-        <id name="estimateCostId" type="int">
+        <id name="estimateCostId" type="java.lang.Long">
             <column name="estimate_cost_ID" />
             <generator class="assigned" />
         </id>
-        <property name="name" type="string">
+        <property name="name" type="java.lang.String">
             <column name="name" length="20" />
         </property>
-        <property name="code" type="string">
+        <property name="code" type="java.lang.String">
             <column name="code" length="20" />
         </property>
-        <property name="desciption" type="string">
-            <column name="desciption" length="20" />
+        <property name="description" type="java.lang.String">
+            <column name="description" length="200" />
         </property>
-        <property name="createdby" type="string">
+        <property name="createdby" type="java.lang.String">
             <column name="CREATEDBY" length="20" />
         </property>
-        <property name="lastupdatedby" type="string">
+        <property name="lastupdatedby" type="java.lang.String">
             <column name="LASTUPDATEDBY" length="20" />
         </property>
         <property name="lastupdateddatetime" type="date">
@@ -29,8 +29,9 @@
         <property name="createddatetime" type="date">
             <column name="CREATEDDATETIME" length="10" />
         </property>
-        <property name="deletedflag" type="string">
+        <property name="deletedflag" type="java.lang.String">
             <column name="DELETEDFLAG" length="1" />
         </property>
+         
     </class>
 </hibernate-mapping>

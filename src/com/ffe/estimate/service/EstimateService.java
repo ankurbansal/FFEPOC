@@ -10,16 +10,19 @@ import com.ffe.estimate.model.Estimate;
  */
 public interface EstimateService {
 
-	public Estimate getEstimate(long EstimateID) throws GTSException;
+	public Estimate getEstimate(long estimateID) throws GTSException;
 
 	public List<Estimate> findEstimate(String searchString) throws GTSException;
 
-	public Estimate saveEstimate(Estimate Estimate) throws GTSException;
+	public Estimate saveEstimate(Estimate estimate) throws GTSException;
 
-	public void deleteEstimate(Estimate Estimate) throws GTSException;
+	public void deleteEstimate(Estimate estimate) throws GTSException;
 	
 	
 
-	boolean isEstimatePresent(long physicalEstimateId, String wpn, String EstimateName)
+	boolean isEstimatePresent(long physicalEstimateId, String wpn, String estimateName)
 			throws GTSException;
+	public Estimate submitEstimate(Estimate estimate) throws GTSException;
+	public Estimate approveEstimate(Estimate estimate) throws GTSException;
+	public Estimate rejectEstimate(Estimate estimate) throws GTSException;
 	}

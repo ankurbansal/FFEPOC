@@ -9,10 +9,10 @@ import java.util.Date;
  */
 public class EstimateCostType implements java.io.Serializable {
 
-	private int estimateCostId;
+	private Long estimateCostId;
 	private String name;
 	private String code;
-	private String desciption;
+	private String description;
 	private String createdby;
 	private String lastupdatedby;
 	private Date lastupdateddatetime;
@@ -22,17 +22,15 @@ public class EstimateCostType implements java.io.Serializable {
 	public EstimateCostType() {
 	}
 
-	public EstimateCostType(int estimateCostId) {
-		this.estimateCostId = estimateCostId;
-	}
+	
 
-	public EstimateCostType(int estimateCostId, String name, String code,
-			String desciption, String createdby, String lastupdatedby,
+	public EstimateCostType(Long estimateCostId, String name, String code,
+			String description, String createdby, String lastupdatedby,
 			Date lastupdateddatetime, Date createddatetime, String deletedflag) {
 		this.estimateCostId = estimateCostId;
 		this.name = name;
 		this.code = code;
-		this.desciption = desciption;
+		this.description = description;
 		this.createdby = createdby;
 		this.lastupdatedby = lastupdatedby;
 		this.lastupdateddatetime = lastupdateddatetime;
@@ -40,13 +38,19 @@ public class EstimateCostType implements java.io.Serializable {
 		this.deletedflag = deletedflag;
 	}
 
-	public int getEstimateCostId() {
-		return this.estimateCostId;
+	
+
+	public Long getEstimateCostId() {
+		return estimateCostId;
 	}
 
-	public void setEstimateCostId(int estimateCostId) {
+
+
+	public void setEstimateCostId(Long estimateCostId) {
 		this.estimateCostId = estimateCostId;
 	}
+
+
 
 	public String getName() {
 		return this.name;
@@ -64,12 +68,12 @@ public class EstimateCostType implements java.io.Serializable {
 		this.code = code;
 	}
 
-	public String getDesciption() {
-		return this.desciption;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setDesciption(String desciption) {
-		this.desciption = desciption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getCreatedby() {

@@ -1,5 +1,8 @@
 package com.ffe.common.framework.util;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 
 public class ConstantUtil {
@@ -33,5 +36,15 @@ public class ConstantUtil {
 	public static final Object APPROVAL_STATUS_PENDING_FOR_DELETE = "";
 	public static final String WPR = "WPR";
 	public static final String TITLENAME = "TITLENAME";
+	
+	public static final Map<String,Long> STATUS_MAP = new HashMap<String,Long>(){
+		{
+			put("Save",1l);
+			put("Submit",2l);
+			put("Approve",3l);
+			put("Reject",4l);
+		}
+	};
+	
 	
 }

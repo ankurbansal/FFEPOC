@@ -211,10 +211,10 @@ public class DigitalCostsServiceImpl implements DigitalCostService {
 	}
 
 	@Override
-	public int getRateCardforServicebasedonVendor(String serviceCode,
-			String costType, int vendor_id) throws GTSException {
+	public Long getRateCardforServicebasedonVendor(String serviceCode,
+			String costType, Long vendor_id) throws GTSException {
 		// TODO Auto-generated method stub
-		int rate_card = 0;
+		Long rate_card = 0l;
 		try
 		{
 			rate_card = digitalCostServiceDao.getRateCardforServicebasedonVendor(serviceCode, costType, vendor_id);
@@ -229,7 +229,7 @@ public class DigitalCostsServiceImpl implements DigitalCostService {
 	}
 
 	@Override
-	public List<DigitalService> lstServiceByCostType(int estimateCosttype)
+	public List<DigitalService> lstServiceByCostType(Long estimateCosttype)
 			throws GTSException {
 		// TODO Auto-generated method stub
 		List<DigitalService> lstDigitalService;

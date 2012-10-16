@@ -16,8 +16,8 @@ public class DigitalCostsServiceDaoImpl extends GenericHibernateDAO<DigitalServi
 
 	private static final Log logger = LogFactory.getLog(DigitalCostsServiceDaoImpl.class);
 	@Override
-	public int getRateCardforServicebasedonVendor(String serviceCode,
-			String costType, int vendor_id) throws GTSException {
+	public Long getRateCardforServicebasedonVendor(String serviceCode,
+			String costType, Long vendor_id) throws GTSException {
 		// TODO Auto-generated method stub
 		List resultSet = null;
 		try{
@@ -46,16 +46,16 @@ public class DigitalCostsServiceDaoImpl extends GenericHibernateDAO<DigitalServi
 			throw new GTSException(exp.getMessage(), exp.getCause());
 		}
 		if (null != resultSet && resultSet.size() > 0){
-			return (Integer)resultSet.get(0);
+			return (Long)resultSet.get(0);
 		}
 		else{
-			return 0;
+			return 0l;
 		}
 			
 	}
 	@Override
 	public List<DigitalService> lstServicebasedonCostType(
-			int estimateCosttype) throws GTSException {
+			Long estimateCosttype) throws GTSException {
 		// TODO Auto-generated method stub
 		List<DigitalService> lstService = null;
 		try {

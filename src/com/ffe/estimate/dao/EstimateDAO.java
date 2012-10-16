@@ -15,4 +15,5 @@ public interface EstimateDAO extends GenericDao<Estimate>{
 	public Boolean isEstimatePresent(long EstimateId, String EstimateName, String wpr)throws GTSException;
 		
 	public boolean deleteEstimate(Estimate Estimate)	throws GTSException;
+	
 }

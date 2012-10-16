@@ -11,29 +11,42 @@ import com.ffe.common.framework.model.AbstractDomain;
  */
 public class EstimateCosting extends AbstractDomain implements java.io.Serializable {
 
-	private int estimateCostingId;
-	private Integer estimateCostTypeId;
-	private int estimateid;
-	private Integer serviceId;
+	private Long estimateCostingId;
+	private Long estimateCostTypeId;
+	private Long serviceId;
 	private BigDecimal localCurrentCost;
-	private Integer currecySelectedId;
+	private Long currecySelectedId;
 	private Integer quantity;
 	private BigDecimal totalcost;
+	private Estimate estimate;
+	private String desc;
+	
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public Estimate getEstimate() {
+		return estimate;
+	}
+
+	public void setEstimate(Estimate estimate) {
+		this.estimate = estimate;
+	}
 
 	public EstimateCosting() {
 	}
 
-	public EstimateCosting(int estimateCostingId, int estimateid) {
-		this.estimateCostingId = estimateCostingId;
-		this.estimateid = estimateid;
-	}
 
-	public EstimateCosting(int estimateCostingId, Integer estimateCostTypeId,
-			int estimateid, Integer serviceId, BigDecimal localCurrentCost,
-			Integer currecySelectedId, Integer quantity, BigDecimal totalcost) {
+
+	public EstimateCosting(Long estimateCostingId, Long estimateCostTypeId,
+			int estimateid, Long serviceId, BigDecimal localCurrentCost,
+			Long currecySelectedId, Integer quantity, BigDecimal totalcost) {
 		this.estimateCostingId = estimateCostingId;
 		this.estimateCostTypeId = estimateCostTypeId;
-		this.estimateid = estimateid;
 		this.serviceId = serviceId;
 		this.localCurrentCost = localCurrentCost;
 		this.currecySelectedId = currecySelectedId;
@@ -41,35 +54,27 @@ public class EstimateCosting extends AbstractDomain implements java.io.Serializa
 		this.totalcost = totalcost;
 	}
 
-	public int getEstimateCostingId() {
+	public Long getEstimateCostingId() {
 		return this.estimateCostingId;
 	}
 
-	public void setEstimateCostingId(int estimateCostingId) {
+	public void setEstimateCostingId(Long estimateCostingId) {
 		this.estimateCostingId = estimateCostingId;
 	}
 
-	public Integer getEstimateCostTypeId() {
+	public Long getEstimateCostTypeId() {
 		return this.estimateCostTypeId;
 	}
 
-	public void setEstimateCostTypeId(Integer estimateCostTypeId) {
+	public void setEstimateCostTypeId(Long estimateCostTypeId) {
 		this.estimateCostTypeId = estimateCostTypeId;
 	}
 
-	public int getEstimateid() {
-		return this.estimateid;
-	}
-
-	public void setEstimateid(int estimateid) {
-		this.estimateid = estimateid;
-	}
-
-	public Integer getServiceId() {
+	public Long getServiceId() {
 		return this.serviceId;
 	}
 
-	public void setServiceId(Integer serviceId) {
+	public void setServiceId(Long serviceId) {
 		this.serviceId = serviceId;
 	}
 
@@ -81,11 +86,11 @@ public class EstimateCosting extends AbstractDomain implements java.io.Serializa
 		this.localCurrentCost = localCurrentCost;
 	}
 
-	public Integer getCurrecySelectedId() {
+	public Long getCurrecySelectedId() {
 		return this.currecySelectedId;
 	}
 
-	public void setCurrecySelectedId(Integer currecySelectedId) {
+	public void setCurrecySelectedId(Long currecySelectedId) {
 		this.currecySelectedId = currecySelectedId;
 	}
 
