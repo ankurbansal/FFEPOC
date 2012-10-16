@@ -35,7 +35,7 @@ body {
           <div class="LoginBoxContainer"><!--LoginBoxContainer start-->
             	<div class="LoginPreLoginTextMessage">Log in to FFE Affiliate Site</div>
                 <div class="InnerPreLoginContainer"><!--InnerPreLoginContainer start-->
-                <form  action="/loginrequest"  id="tiles_person_form" method="post">
+                <form  action="./j_spring_security_check"  id="tiles_person_form" method="post">
                 	<div class="PreLoginLbl">Email</div>
             
                     <div class="PreLoginFld"><input name="userloginid" type="text" class="PreLoginTextBox"/></div>
