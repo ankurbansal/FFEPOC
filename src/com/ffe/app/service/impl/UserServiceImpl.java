@@ -35,10 +35,27 @@ public class UserServiceImpl implements UserService {
 			if(null!=Users && Users.size()>0){
 				userDetails=Users.get(0);
 				System.out.println("userDetails " + userDetails);
-			}else{
-				throw new UsernameNotFoundException("Please check the UserName and Password");	
 			}
 		} catch (GTSException gtsException) {
+			gtsException.printStackTrace();
+		
+		}
+		System.out.println("exiting  with UserServiceImpl.LoadUserByUserName");
+		return userDetails;
+	}
+	
+	
+	
+
+	@Override
+	public UserDetails saveUser(UserProfile userProfile)
+			throws UsernameNotFoundException {
+		System.out.println("entering with UserServiceImpl.LoadUserByUserName-->"+ userProfile);
+		UserDetails userDetails= null;
+		try {
+			userDao.update(userProfile,"");
+			
+		} catch (Exception gtsException) {
 			gtsException.printStackTrace();
 		
 		}

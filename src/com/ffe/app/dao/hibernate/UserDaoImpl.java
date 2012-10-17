@@ -17,15 +17,11 @@ implements UserDao{
 		System.out.println("Entering UserDAOImpl.searchUser");
 		List<UserProfile> Users = null;
 		try {
-			
+			System.out.println("userName --->"+userName);
 			Users = (List<UserProfile>) getSession()
 					.createQuery(
-							" from com.ffe.common.framework.model.UserProfile User where upper(uniqueId) = :stringQuery2 or upper(emailid) = :stringQuery ")
-					.setParameter("stringQuery",
-							"%" + userName.toUpperCase() + "%")
-					.setParameter("stringQuery2",
-							"%" + userName.toUpperCase() + "%")
-					.list();
+							" from com.ffe.common.framework.model.UserProfile user where upper(user.email) = ? ")
+					.setString(0, userName.toUpperCase()).list();
 		} catch (DataAccessException ex) {
 			ex.printStackTrace();
 			System.out.println("Exception in AddressDAOImpl.searchUser");

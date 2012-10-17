@@ -43,7 +43,7 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 	public String firstName;
 	public String lastName;
 	public String email;
-	public String userid;
+	public Long userid;
 	public Long territoryId;
 	public Long moneyFormatterId;
 	
@@ -60,10 +60,10 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 	public void setUniqueId(String uniqueId) {
 		this.uniqueId = uniqueId;
 	}
-	public String getUserid() {
+	public Long getUserid() {
 		return userid;
 	}
-	public void setUserid(String userid) {
+	public void setUserid(Long userid) {
 		this.userid = userid;
 	}
 	public Collection<? extends GrantedAuthority> getAuthorities() {

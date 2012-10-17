@@ -38,12 +38,9 @@ public class TestDriver {
 		String myBeanResources[] = new String[] { "classpath:spring-security-context.xml"};
 		System.setProperty("LOG_PATH", "C://log");
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
-
 		UserDetailsService userSearch = (UserDetailsService) ctx.getBean("myUserDetailsService");
-		
-			System.out.println(userSearch.loadUserByUsername("ankur"));
+		System.out.println(userSearch.loadUserByUsername("ankur.bansal@igate.com"));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

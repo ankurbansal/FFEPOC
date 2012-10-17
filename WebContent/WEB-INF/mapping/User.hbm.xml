@@ -17,9 +17,6 @@
         <property name="email" type="string">
             <column name="emailid" length="30" not-null="true" />
         </property>
-        <property name="uniqueId" type="java.lang.String">
-            <column name="uniqueId" not-null="true" />
-        </property>
         <property name="territoryId" type="java.lang.Long">
             <column name="territoryID" not-null="true" />
         </property>
@@ -32,7 +29,7 @@
         <property name="createdDateTime" type="date">
             <column name="createdDateTime" length="10" not-null="true" />
         </property>
-        <property name="deletedFlag" type="string">
+        <property name="deletedFlag" type="yes_no">
             <column name="deletedFlag" length="1" not-null="true" />
         </property>
         <property name="moneyFormatterId" type="java.lang.Long">
@@ -41,5 +38,35 @@
         <property name="password" type="java.lang.String">
             <column name="password" not-null="true" />
         </property>
+    </class>
+    
+    
+    <class name="com.ffe.common.framework.model.UserRoleAssoc" table="user_role_assoc" >
+        <id name="userRoleAssocId" type="java.lang.Long">
+            <column name="user_role_assoc_id" />
+            <generator class="increment" />
+        </id>
+        <property name="roleId" type="java.lang.Long">
+            <column name="first_name" length="20" not-null="true" />
+        </property>
+       
+       <many-to-one name="profile" class="com.ffe.common.framework.model.UserProfile"
+          column="userid"/>
+       
+        
+        <property name="lastUpdatedBy" type="string">
+            <column name="lastUpdatedBy" length="20" not-null="true" />
+        </property>
+        <property name="lastUpdatedDateTime" type="date">
+            <column name="lastUpdatedDateTime" length="10" not-null="true" />
+        </property>
+        <property name="createdDateTime" type="date">
+            <column name="createdDateTime" length="10" not-null="true" />
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="deletedFlag" length="1" not-null="true" />
+        </property>
+        
+        
     </class>
 </hibernate-mapping>
