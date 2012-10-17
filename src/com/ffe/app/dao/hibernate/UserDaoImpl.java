@@ -16,17 +16,18 @@ implements UserDao{
 	public List<UserProfile> findUser(String userName) throws GTSException {
 		System.out.println("Entering UserDAOImpl.searchUser");
 		List<UserProfile> Users = null;
-		String firstName = "";
-		String lastName = "";
 		try {
 			
 			Users = (List<UserProfile>) getSession()
 					.createQuery(
-							" from com.ffe.common.framework.model.UserProfile User where upper(uniqueId) = :stringQuery or upper(emailid) = :stringQuery")
+							" from com.ffe.common.framework.model.UserProfile User where upper(uniqueId) = :stringQuery2 or upper(emailid) = :stringQuery ")
 					.setParameter("stringQuery",
+							"%" + userName.toUpperCase() + "%")
+					.setParameter("stringQuery2",
 							"%" + userName.toUpperCase() + "%")
 					.list();
 		} catch (DataAccessException ex) {
+			ex.printStackTrace();
 			System.out.println("Exception in AddressDAOImpl.searchUser");
 			throw new GTSException(ex.getMessage(), ex.getCause());
 		}

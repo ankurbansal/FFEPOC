@@ -17,7 +17,7 @@
         <property name="email" type="string">
             <column name="emailid" length="30" not-null="true" />
         </property>
-        <property name="uniqueId" type="java.lang.Long">
+        <property name="uniqueId" type="java.lang.String">
             <column name="uniqueId" not-null="true" />
         </property>
         <property name="territoryId" type="java.lang.Long">

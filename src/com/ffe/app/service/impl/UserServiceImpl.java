@@ -27,13 +27,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
-		System.out.println("entering with UserServiceImpl.LoadUserByUserName");
+		System.out.println("entering with UserServiceImpl.LoadUserByUserName-->"+ userName);
 		UserDetails userDetails= null;
 		try {
 			List<UserProfile> Users;
 			Users = userDao.findUser(userName);
 			if(null!=Users && Users.size()>0){
 				userDetails=Users.get(0);
+				System.out.println("userDetails " + userDetails);
 			}else{
 				throw new UsernameNotFoundException("Please check the UserName and Password");	
 			}

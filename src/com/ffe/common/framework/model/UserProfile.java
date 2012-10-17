@@ -14,7 +14,7 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 		final int maxLen = 10;
 		return "UserProfile [authorities="
 				+ (authorities != null ? toString(authorities, maxLen) : null)
-				+ ", password=" + password + ", username=" + username + ", dn="
+				+ ", password=" + password + ", username=" + email + ", dn="
 				+ dn + ", firstName=" + firstName + ", lastName=" + lastName
 				+ "]";
 	}
@@ -33,13 +33,39 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 	}
 	public Collection<? extends GrantedAuthority> authorities ;
 	public String password;
-	public String username;
+	public Long getMoneyFormatterId() {
+		return moneyFormatterId;
+	}
+	public void setMoneyFormatterId(Long moneyFormatterId) {
+		this.moneyFormatterId = moneyFormatterId;
+	}
 	public String dn ;
 	public String firstName;
 	public String lastName;
 	public String email;
+	public String userid;
+	public Long territoryId;
+	public Long moneyFormatterId;
 	
-	
+	public String uniqueId;
+	public Long getTerritoryId() {
+		return territoryId;
+	}
+	public void setTerritoryId(Long territoryId) {
+		this.territoryId = territoryId;
+	}
+	public String getUniqueId() {
+		return uniqueId;
+	}
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
@@ -54,10 +80,10 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 		this.password = password;
 	}
 	public String getUsername() {
-		return username;
+		return email;
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		this.email = username;
 	}
 	public String getDn() {
 		return dn;
