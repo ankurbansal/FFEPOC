@@ -20,17 +20,18 @@
 	
 	<beans:bean id="http403ForbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
-  <!--  
+  <!--   -->
    <security:authentication-manager alias="authenticationManager">
       <security:authentication-provider   user-service-ref='myUserDetailsService'/>
     </security:authentication-manager>
-     -->
+    
 
 	<beans:bean id="myUserDetailsService"
       class="com.ffe.app.service.impl.UserServiceImpl">
     <beans:property name="userDao" ref="userDao"/>
    </beans:bean>
 
+<!--  in memory
   <security:authentication-manager>
     <security:authentication-provider>
       <security:user-service>
@@ -39,7 +40,7 @@
       </security:user-service>
     </security:authentication-provider>
   </security:authentication-manager>
-
+ -->
 
 
 

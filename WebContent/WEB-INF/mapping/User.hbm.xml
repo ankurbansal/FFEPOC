@@ -4,7 +4,7 @@
 <!-- Generated Oct 16, 2012 11:23:45 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ffe.common.framework.model.UserProfile" table="user" >
-        <id name="userid" type="int">
+        <id name="userid" type="java.lang.Long">
             <column name="userid" />
             <generator class="increment" />
         </id>
@@ -14,13 +14,13 @@
         <property name="lastName" type="string">
             <column name="last_name" length="20" not-null="true" />
         </property>
-        <property name="emailid" type="string">
+        <property name="email" type="string">
             <column name="emailid" length="30" not-null="true" />
         </property>
-        <property name="uniqueId" type="int">
+        <property name="uniqueId" type="java.lang.Long">
             <column name="uniqueId" not-null="true" />
         </property>
-        <property name="territoryId" type="int">
+        <property name="territoryId" type="java.lang.Long">
             <column name="territoryID" not-null="true" />
         </property>
         <property name="lastUpdatedBy" type="string">
@@ -35,7 +35,7 @@
         <property name="deletedFlag" type="string">
             <column name="deletedFlag" length="1" not-null="true" />
         </property>
-        <property name="moneyFormatterId" type="int">
+        <property name="moneyFormatterId" type="java.lang.Long">
             <column name="MoneyFormatterID" not-null="true" />
         </property>
         <property name="password" type="java.lang.String">

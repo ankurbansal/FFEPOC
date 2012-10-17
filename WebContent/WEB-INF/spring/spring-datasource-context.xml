@@ -51,6 +51,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 				<value>mapping/EstimateCostType.hbm.xml</value>
 				<value>mapping/Estimate.hbm.xml</value>
 				<value>mapping/EstimateCosting.hbm.xml</value>
+				<value>mapping/User.hbm.xml</value>
 				
 			</list>
 		</property>
