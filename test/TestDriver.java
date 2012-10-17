@@ -1,40 +1,47 @@
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.ffe.common.exception.GTSException;
-import com.ffe.estimate.model.Estimate;
-import com.ffe.estimate.model.EstimateCosting;
 import com.ffe.estimate.service.EstimateService;
-import com.ffe.service.model.DigitalCostsVendor;
-import com.ffe.service.model.DigitalServTemplate;
-import com.ffe.service.model.DigitalService;
 import com.ffe.service.service.DigitalCostService;
-import com.ffe.title.model.Title;
 import com.ffe.title.service.TitleService;
 
 
 public class TestDriver {
 	public static void main(String[] args) {
-		vendor();
+		userSearch();
 	}
 	
 	
 	private static void titleCode(){
+		try {
 		String myBeanResources[] = new String[] { "spring-app-context.xml"};
 		System.setProperty("LOG_PATH", "C://log");
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
-		
+
 		TitleService titleService = (TitleService) ctx.getBean("titleService");
-		try {
+	
 			System.out.println(titleService.getTitle(21l));
 		} catch (GTSException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 	}
+	
+	private static void userSearch(){
+		try {
+		String myBeanResources[] = new String[] { "classpath:spring-security-context.xml"};
+		System.setProperty("LOG_PATH", "C://log");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
+
+		UserDetailsService userSearch = (UserDetailsService) ctx.getBean("myUserDetailsService");
+		
+			System.out.println(userSearch.loadUserByUsername("ankur"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 
@@ -140,12 +147,7 @@ public class TestDriver {
 			
 			
 		}
-		catch(GTSException gts)
-		{
-			gts.printStackTrace();
-			System.out.println("GTS Exception");
-			System.out.println(gts.getLocalizedMessage());
-		}
+		
 		catch(Exception exp)
 		{
 			exp.printStackTrace();
