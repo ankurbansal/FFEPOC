@@ -38,6 +38,13 @@
         <property name="password" type="java.lang.String">
             <column name="password" not-null="true" />
         </property>
+        
+        <bag name="userRoleAssocs" cascade="all" inverse="true" lazy="false">
+        <key column="userid"/>
+        	<one-to-many class="com.ffe.common.framework.model.UserRoleAssoc" />
+        </bag>
+              
+       
     </class>
     
     
@@ -47,13 +54,16 @@
             <generator class="increment" />
         </id>
         <property name="roleId" type="java.lang.Long">
-            <column name="first_name" length="20" not-null="true" />
+            <column name="roleId" length="20" not-null="true" />
         </property>
+        
+        <many-to-one name="role" class="com.ffe.common.framework.model.Role"   column="roleId" insert="false" update="false" />
+      
+      
        
        <many-to-one name="profile" class="com.ffe.common.framework.model.UserProfile"
           column="userid"/>
-       
-        
+    
         <property name="lastUpdatedBy" type="string">
             <column name="lastUpdatedBy" length="20" not-null="true" />
         </property>
@@ -66,7 +76,21 @@
         <property name="deletedFlag" type="yes_no">
             <column name="deletedFlag" length="1" not-null="true" />
         </property>
-        
-        
-    </class>
+   </class>
+   
+   
+  
+  
+   <class name="com.ffe.common.framework.model.Role" table="role" >
+        <id name="roleId" type="java.lang.Long">
+            <column name="roleId" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true" />
+        </property>
+         <property name="code" type="string">
+            <column name="code" length="20" not-null="true" />
+        </property>
+  </class>
 </hibernate-mapping>
