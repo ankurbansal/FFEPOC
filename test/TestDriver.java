@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ffe.common.exception.GTSException;
 import com.ffe.estimate.model.Estimate;
+import com.ffe.estimate.model.EstimateCostHeader;
 import com.ffe.estimate.model.EstimateCosting;
 import com.ffe.estimate.service.EstimateService;
 import com.ffe.service.model.DigitalCostsVendor;
@@ -125,18 +126,28 @@ public class TestDriver {
 			
 			estimate.setLstEstimateCosting(lstEstCosting);
 			
+			EstimateCostHeader estimateCostHeader = new EstimateCostHeader();
+			estimateCostHeader.setEstimate(estimate);
+			estimateCostHeader.setFilmLength(new BigDecimal(10));
+			estimateCostHeader.setHeaderOV("Sample Header");
+			
+			estimate.setEstimateCostHeader(estimateCostHeader);
+			
 			
 			Estimate est = estimateService.saveEstimate(estimate);
 			System.out.println("Inserted Successfully\t"+est.getEstimateId());*/
 			
-			/*Estimate est = estimateService.getEstimate(4l);
+			Estimate est = estimateService.getEstimate(1l);
 			System.out.println("Status\t"+est.getEstCostStaId());
 			List<EstimateCosting> lstEst = est.getLstEstimateCosting();
 			System.out.println("List Size is\t"+lstEst.size());
 			for(EstimateCosting es:lstEst)
 			{
 				System.out.println("TotCost\t"+es.getTotalcost());
-			}*/
+			}
+			
+			EstimateCostHeader estCostHeader = est.getEstimateCostHeader();
+			System.out.println("EstHeaderfilmLen\t"+estCostHeader.getFilmLength());
 			
 			
 		}

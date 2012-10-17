@@ -21,6 +21,15 @@ public class Estimate extends AbstractDomain implements java.io.Serializable {
 	private BigDecimal totalLocalCost;
 	private List<EstimateCosting> lstEstimateCosting;
 	private Long estCostStaId;
+	private EstimateCostHeader estimateCostHeader;
+	public EstimateCostHeader getEstimateCostHeader() {
+		return estimateCostHeader;
+	}
+
+	public void setEstimateCostHeader(EstimateCostHeader estimateCostHeader) {
+		this.estimateCostHeader = estimateCostHeader;
+	}
+
 	private String desc;
 
 	public String getDesc() {

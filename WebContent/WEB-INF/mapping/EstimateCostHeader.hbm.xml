@@ -3,36 +3,34 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 11, 2012 5:26:27 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.ffe.estimate.model.Estimate" table="estimate" catalog="ffepoc_try1">
-        <id name="estimateId" type="java.lang.Long">
-            <column name="estimateID" />
+    <class name="com.ffe.estimate.model.EstimateCostHeader" table="estimate_cost_header" catalog="ffepoc_try1">
+        <id name="estCostHeadId" type="java.lang.Long">
+            <column name="est_cost_head_id" />
             <generator class="increment" />
         </id>
-        <property name="releaseId" type="java.lang.Long">
-            <column name="releaseID" />
+     
+         <many-to-one name="estimate" class="com.ffe.estimate.model.Estimate"
+			cascade="all" unique="true">
+             <column name="estimate_id" />
+         </many-to-one>
+         
+        <property name="releaseDate" type="java.util.Date">
+            <column name="release_date" />
         </property>
-        <property name="totalUscost" type="big_decimal">
-            <column name="TotalUSCost" precision="20" scale="0" />
+        <property name="filmLength" type="big_decimal">
+            <column name="film_length" precision="10" scale="8" />
         </property>
-        <property name="totalLocalCost" type="big_decimal">
-            <column name="TotalLocalCost" precision="20" scale="0" />
-        </property>
-       
-        
-        <bag name="lstEstimateCosting" cascade="all" inverse="true" lazy="false">
-        <key column="estimateid"/>
-        	<one-to-many class="com.ffe.estimate.model.EstimateCosting" />
-        	<filter condition=":deletedFlagFilterParam != DELETEDFLAG"
-				name="deletedFlagFilter" />
-        
-        </bag>
-        
-        <property name="estCostStaId" type="java.lang.Long">
-            <column name="est_cost_sta_id" />
+           <property name="noOfReels" type="java.lang.Long">
+            <column name="no_of_reels" />
         </property>
         
-        <one-to-one name="estimateCostHeader" class="com.ffe.estimate.model.EstimateCostHeader"
-			cascade="all"></one-to-one>
+        <property name="totPrints" type="java.lang.Long">
+            <column name="tot_prints" />
+        </property>
+        
+       	 <property name="headerOV" type="java.lang.String">
+            <column name="header_ov" />
+        </property>
         
         <property name="createdBy" type="java.lang.String">
             <column name="CREATEDBY" />
