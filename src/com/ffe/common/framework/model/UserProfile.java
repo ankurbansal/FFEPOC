@@ -2,22 +2,32 @@ package com.ffe.common.framework.model;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserProfile extends AbstractDomain implements UserDetails{
 
 	
+	
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		final int maxLen = 10;
-		return "UserProfile [authorities="
-				+ (authorities != null ? toString(authorities, maxLen) : null)
-				+ ", password=" + password + ", username=" + email + ", dn="
-				+ dn + ", firstName=" + firstName + ", lastName=" + lastName
-				+ "]";
+		return "UserProfile [authorities=" + authorities + ", dn=" + dn
+				+ ", email=" + email + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", moneyFormatterId="
+				+ moneyFormatterId + ", password=" + password + ", roleString="
+				+ roleString + ", territoryId=" + territoryId + ", uniqueId="
+				+ uniqueId + ", userid=" + userid + "]";
 	}
+	
 	private String toString(Collection<?> collection, int maxLen) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("[");
@@ -46,7 +56,21 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 	public Long userid;
 	public Long territoryId;
 	public Long moneyFormatterId;
+	public List<UserRoleAssoc> userRoleAssocs;
 	
+	/**
+	 * @return the userRoleAssocs
+	 */
+	public List<UserRoleAssoc> getUserRoleAssocs() {
+		return userRoleAssocs;
+	}
+
+	/**
+	 * @param userRoleAssocs the userRoleAssocs to set
+	 */
+	public void setUserRoleAssocs(List<UserRoleAssoc> userRoleAssocs) {
+		this.userRoleAssocs = userRoleAssocs;
+	}
 	public String uniqueId;
 	public Long getTerritoryId() {
 		return territoryId;
@@ -110,7 +134,23 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 		this.email = email;
 	}
 	
+	private String roleString;
 	
+	
+	/**
+	 * @return the roleString
+	 */
+	public String getRoleString() {
+		return roleString;
+	}
+
+	/**
+	 * @param roleString the roleString to set
+	 */
+	public void setRoleString(String roleString) {
+		this.roleString = roleString;
+	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub

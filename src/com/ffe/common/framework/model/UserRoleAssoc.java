@@ -10,6 +10,19 @@ public class UserRoleAssoc extends AbstractDomain{
 		this.userRoleAssocId = userRoleAssocId;
 	}
 	private  Long roleId;
+	private  Role role;
+	/**
+	 * @return the role
+	 */
+	public Role getRole() {
+		return role;
+	}
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	private  UserProfile profile ;
 	
 	public Long getRoleId() {

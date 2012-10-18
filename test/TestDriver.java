@@ -1,10 +1,13 @@
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import com.ffe.app.service.impl.UserService;
 import com.ffe.common.exception.GTSException;
+import com.ffe.common.framework.model.UserProfile;
 import com.ffe.estimate.model.Estimate;
 import com.ffe.estimate.model.EstimateCosting;
 import com.ffe.estimate.service.EstimateService;
@@ -14,10 +17,39 @@ import com.ffe.title.service.TitleService;
 
 public class TestDriver {
 	public static void main(String[] args) {
-		userSearch();
+		saveUser();
 	}
 	
 	
+	private static void saveUser() {
+		try {
+			String myBeanResources[] = new String[] { "classpath:spring-security-context.xml"};
+			System.setProperty("LOG_PATH", "C://log");
+			ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
+			UserService userSearch = (UserService) ctx.getBean("myUserDetailsService");
+			UserProfile userProfile= new UserProfile();
+			userProfile.setEmail("akash@gmail.com");
+			userProfile.setCreatedBy("ankur");
+			userProfile.setCreatedDateTime(new Date());
+			userProfile.setDeletedFlag(false);
+			userProfile.setFirstName("akash");
+			userProfile.setLastName("JAIN");
+			userProfile.setLastUpdatedDateTime(new Date());
+			userProfile.setMoneyFormatterId(1l);
+			userProfile.setLastUpdatedBy("ankur");
+			userProfile.setPassword("jain");
+			userProfile.setTerritoryId(1l);	
+			
+			userSearch.saveUser(userProfile);
+			
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+	}
+
+
 	private static void titleCode(){
 		try {
 		String myBeanResources[] = new String[] { "spring-app-context.xml"};

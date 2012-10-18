@@ -8,6 +8,6 @@ import com.ffe.common.framework.model.UserProfile;
 
 public interface UserDao extends GenericDao<UserProfile> {
 
-	public List<UserProfile> findUser(String userName) throws GTSException;
+	public UserProfile findUser(String userName) throws GTSException;
 
 }
