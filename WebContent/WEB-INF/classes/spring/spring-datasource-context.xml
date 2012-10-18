@@ -7,7 +7,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<!-- PROPERTY PLACE HOLDER FOR LOCAL -->
 	 <bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="classpath:ffegts.properties" />
+		<property name="locations" value="file://${jboss.server.config.url}/addressbook/ffegts.properties" />
 	</bean>
 	
 	<bean id="appDataSource"
@@ -51,8 +51,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 				<value>mapping/EstimateCostType.hbm.xml</value>
 				<value>mapping/Estimate.hbm.xml</value>
 				<value>mapping/EstimateCosting.hbm.xml</value>
-				<value>mapping/User.hbm.xml</value>
-				<value>mapping/EstimateCostHeader.hbm.xml</value>
+				
 			</list>
 		</property>
 	</bean>

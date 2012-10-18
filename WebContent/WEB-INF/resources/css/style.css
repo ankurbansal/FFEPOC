@@ -152,6 +152,239 @@ border-bottom:#000;
 	font-family:Verdana, Geneva, sans-serif;
 	color:#000;
 	font-size:11px;
-	padding-left:2px;
-	
+	padding-left:2px;	
+}
+
+.expandCollapseToggle{
+	float:left;
+}
+
+.addService {
+    height: 25px;
+    width: 25px;
+	float:left;
+	margin-left: -8px;
+}
+
+.removeService {
+    height: 25px;
+    width: 25px;
+	float:left;
+	margin-left: -12px;
+}
+
+.sectionSubHeader{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding:5px 0px 0px 5px;
+	font-weight:bold;
+	height:20px;
+	float:left;	
+}
+
+.sectionHeader{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding:5px 0px 0px 5px;
+	font-weight:bold;
+	height:30px;
+	float:left;	
+}
+
+.sectionSelect{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	float:left	
+}
+
+.section-small-col{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	font-weight:normal;
+	background-color:#dfeaf5;
+	height:25px;
+	text-align:left;
+	padding-left: 9px;  
+	padding-right: 5px;  
+	width: 60px;
+}
+
+.section-big-col{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	font-weight:normal;
+	background-color:#dfeaf5;
+	height:25px;
+	text-align:left;
+	padding-left: 9px;  
+	padding-right: 5px;  
+	width: 170px;	
+}
+
+.section-small-subcol{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#F5F5F5;
+	height:25px;
+	text-align:left;
+	width: 63px;
+}
+
+.section-big-subcol{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#F5F5F5;
+	height:25px;
+	text-align:left;
+	width: 165px;
+}
+
+.section-small-header{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#999;
+	height:30px;
+	width: 63px;
+}
+
+.section-big-header{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#999;
+	height:30px;
+	width: 165px;
+}
+
+.section-subTotal-header{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#999;
+	height:30px;
+	width: 725px;
+}
+
+.textbox-datainput{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:10px;	
+	font-weight:normal;
+	background-color:#fbfbe8;
+	height:20px;	
+	border:none;
+	width:54px;
+}
+
+.textbox-standardprice{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:10px;
+	padding-left:1px;
+	font-weight:normal;
+	background-color:#d2e0ee;
+	height:20px;
+	text-align:left;
+	border:none;
+	width:54px;
+}
+
+.textbox-computed{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:10px;
+	padding-left:1px;
+	font-weight:normal;
+	background-color:#f2f1f1;
+	height:20px;
+	text-align:left;
+	border:none;
+	width:54px;
+}
+
+.row{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:normal;
+	background-color:#dfeaf5;
+	height:25px;
+	text-align:left;
+}
+
+.subrow{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#F5F5F5;
+	height:25px;
+	text-align:left;
+}
+
+.section-row{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	font-weight:normal;
+	background-color:#dfeaf5;
+	height:25px;
+	text-align:left;
+	padding-left: 9px;  
+	padding-right: 5px;  
+}
+
+.title{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#FFF;
+	font-size:16px;
+	padding-left:25px;
+	font-style:normal;
+}
+
+.toptext{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#FFF;
+	font-size:11px;
+	padding-left:1px;
+	font-style:normal;
+}
+
+.header{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+	font-size:12px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#999;
+	height:30px;	
+}
+
+.headingFilmEstimate{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#FFF;
+	font-size:18px;
+	padding-left:25px;
+	font-style:normal;
+	text-align:left;
 }

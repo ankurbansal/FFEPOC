@@ -10,7 +10,18 @@
       <put-attribute name="innerLeftContainer" value="/WEB-INF/jsp/general/left_menu_tile.jsp"/>    
       <put-attribute name="innerRightContainer" value=""/>           
       <put-attribute name="footer" value="/WEB-INF/jsp/general/footer_tile.jsp"/>
-   </definition>  
+   </definition> 
+   
+   <!-- definition name="tiles_estimate_layout" template="/WEB-INF/jsp/general/tiles_estimate_template.jsp">
+      <put-attribute name="header" value="/WEB-INF/jsp/general/header_tile.jsp"/>
+      <put-attribute name="menu" value="/WEB-INF/jsp/general/tabbed_menu_tile.jsp"/>       
+      <put-attribute name="innerRightContainer" value=""/>           
+      <put-attribute name="footer" value="/WEB-INF/jsp/general/footer_tile.jsp"/>
+   </definition-->  
+   
+  <definition name="overlay_layout" template="/WEB-INF/jsp/general/overlay_template.jsp"> 
+      <put-attribute name="innerContainer" value=""/>     
+   </definition> 
   
    <definition name="view_title" extends="tiles_general_layout">
    		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/view_title_details.jsp"/>
@@ -26,6 +37,14 @@
    
    <definition name="title_search_results" extends="tiles_general_layout">
    		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/title_results.jsp"/>   		
+   </definition>
+   
+   <definition name="estimate_home" extends="tiles_general_layout">
+   		<put-attribute name="innerRightContainer" value="/WEB-INF/jsp/film_estimate.jsp"/>   		
+   </definition>
+   
+   <definition name="film_service_pricing_overlay" extends="overlay_layout">
+   		<put-attribute name="innerContainer" value="/WEB-INF/jsp/overlay/film_service_pricing.jsp"/>   		
    </definition>
    
 </tiles-definitions>

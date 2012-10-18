@@ -21,7 +21,7 @@ import com.ffe.title.service.TitleService;
 
 
 @Controller
-public class FilmTilesController {
+public class FilmTitleFormController {
 	
 	@Autowired
 	TitleService titleService;
@@ -30,7 +30,7 @@ public class FilmTilesController {
 		this.titleService = titleService;
 	}
 
-	private static final Logger log = LoggerFactory.getLogger(FilmTilesController.class);
+	private static final Logger log = LoggerFactory.getLogger(FilmTitleFormController.class);
 
 	@RequestMapping(value = "/addtitle")
 	public String saveTitle(@ModelAttribute(value="title")Title title, BindingResult result,

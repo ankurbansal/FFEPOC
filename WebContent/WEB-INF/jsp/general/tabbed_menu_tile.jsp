@@ -4,7 +4,7 @@
        <tr>
          <td width="8%" align="center" valign="middle"><a href="#" class="submenu">HOME</a></td>
          <td width="18%" align="center" valign="middle"><a href="./titlehome" class="submenu">TITLE MANAGEMENT</a></td>
-         <td width="17%" align="center" valign="middle"><a href="#" class="submenu">FILM ESTIMATION</a></td>
+         <td width="17%" align="center" valign="middle"><a href="./loadEstimatehome" class="submenu">FILM ESTIMATION</a></td>
          <td width="18%" align="center" valign="middle"><a href="#" class="submenu">AD PUB ESTIMATION</a></td>
          <td width="14%" align="center" valign="middle"><a href="#" class="submenu">BOX OFFICE </a></td>
          <td width="25%">&nbsp;</td>
