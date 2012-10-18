@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>TVNDE - Login</title>
-<link href="./resources/css/TVNDEstyle.css" rel="stylesheet" type="text/css" />
+<link href="./resources/css/login_page_style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 body {

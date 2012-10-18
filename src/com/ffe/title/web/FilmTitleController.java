@@ -13,24 +13,24 @@ import com.ffe.title.message.SearchCriteria;
 import com.ffe.title.model.Title;
 
 @Controller
-public class FilmController {
+public class FilmTitleController {
 	
-	private static final Logger log = LoggerFactory.getLogger(FilmController.class);	
+	private static final Logger log = LoggerFactory.getLogger(FilmTitleController.class);	
 	
 	@RequestMapping(value = "/titlehome")
 	public String getTitleHome(Model model, HttpServletRequest request) throws GTSException{
-		log.info("Inside FilmController.getTitleHome");
+		log.info("Inside FilmController.getTitleHome"+request.getRequestURI());
 		try {			
 			model.addAttribute("searchcriteria", new SearchCriteria());
 			model.addAttribute("title", new Title());
-			populateModelWithReferenceTypes(model);		
+			populateModelWithReferenceTypes(model);		     
 		} catch(Exception e){
 			log.error("Exception Occured in FilmController.getTitleHome : ",e);
 			throw new GTSException(e.getMessage(),e.getCause());
 		}
 		return "add_title"; 
 	}
-
+	
 	private static void populateModelWithReferenceTypes(Model model) {
 		
 		

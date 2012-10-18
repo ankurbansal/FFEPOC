@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ffe.common.exception.GTSException;
 import com.ffe.common.framework.model.UserProfile;
-import com.ffe.title.web.FilmController;
 
 @Controller
 public class LoginController {
 
-	private static final Logger log = LoggerFactory.getLogger(FilmController.class);	
+	private static final Logger log = LoggerFactory.getLogger(LoginController.class);	
 	
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
 	public String login(Model model, HttpServletRequest request) throws GTSException {

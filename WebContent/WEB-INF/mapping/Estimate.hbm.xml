@@ -31,9 +31,6 @@
             <column name="est_cost_sta_id" />
         </property>
         
-        <one-to-one name="estimateCostHeader" class="com.ffe.estimate.model.EstimateCostHeader"
-			cascade="all"></one-to-one>
-        
         <property name="createdBy" type="java.lang.String">
             <column name="CREATEDBY" />
            
