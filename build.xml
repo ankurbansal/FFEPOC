@@ -1,35 +1,185 @@
-<project name="MyProject" basedir="." default="default">
+<?xml version="1.0"?>
+<!--
+    Cleans, retrieves, builds, and deploys application.
+-->
+<project name="addressbook-services" default="all" basedir=".">
+	<description>Address Book Services build file</description>
+	<!-- Externally defined properties -->
+	<property file="build.properties" />
+	<!-- Build Properties -->
+	<property name="src.dir" value="${src.dir}" />
+	<property name="config.dir" value="${config.dir}" />
+	<property name="web.dir" value="${web.dir}" />
+	<property name="dist.dir" value="${dist.dir}" />
+	<property name="war.dir" value="${war.dir}" />
+	<property name="build.dir" value="${build.dir}" />
+	<property name="lib.dir" value="${lib.dir}" />
 
-	<path id="toolslib">
-<path location="${lib.dir}/dom4j-1.6.1.jar" />
-<path location="${lib.dir}/freemarker.jar" />
-<path location="${lib.dir}/hibernate3.jar" />
-<path location="${lib.dir}/hibernate-tools.jar" />
-<path location="${lib.dir}/log4j-1.2.15.jar" />
-<path location="${lib.dir}/org.apache.commons.logging.jar" />
-<path location="${lib.dir}/slf4j-api-1.5.8.jar" />
-<path location="${lib.dir}/slf4j-log4j12-1.5.8.jar" />
-<path location="${lib.dir}/mysql-connector-java-5.1.13.jar" />
-</path>
- 
-<taskdef name="hibernatetool" 
-	classname="org.hibernate.tool.ant.HibernateToolTask" 
-     classpathref="toolslib" 
+	<!-- TestNG Properties -->
 
-/>
- 
-<target name="default">
+	<!-- JBOSS Properties -->
+	<property name="jboss.home.dir" value="${jboss.home.dir}" />
+
+	<!-- =================================================================== -->
+	<!--             THIRD PARTY JARS                               		 -->
+	<!-- =================================================================== -->
+
+	<!-- JBOSS App Server Common libraries -->
+	<fileset id="appserver.common.lib" dir="${jboss.home.dir}/common/lib">
+		<include name="*.jar" />
+	</fileset>
+
+	<!-- JBOSS App Server Client libraries -->
+		<fileset id="appserver.client.lib" dir="${jboss.home.dir}/client">
+			<include name="*.jar" />			
+		</fileset>
+	<!-- JBOSS App Server libraries -->
+			<fileset id="appserver.lib" dir="${jboss.home.dir}/lib">
+				<include name="*.jar" />			
+			</fileset>	
+
+	<fileset id="web.lib" dir="${web.dir}/WEB-INF/lib">
+		<include name="*.jar" />			
+	</fileset>
 	
-<hibernatetool   destdir="./generated"  >
- <classpath>
-  <path location="." />
-  <path location="./classes" />
- </classpath>
- 
- <configuration configurationfile="hibernate.cfg.xml"/>
- <hbm2java jdk5="true"/>
- <hbm2hbmxml/>
- <hbm2dao/>
- </hibernatetool>
-</target>
+	<path id="build.classpath">
+		<!-- Complied classes directory -->
+		<pathelement location="${build.dir}" />
+		<!-- Project libraries -->
+		<fileset refid="web.lib" />
+		<fileset refid="appserver.common.lib" />
+		<fileset refid="appserver.lib" />
+		<fileset refid="appserver.client.lib" />
+		
+	</path>
+
+	<!-- ============ TARGETS ============ -->
+
+	<target name="all" depends="clean, build, deploy">
+		<tstamp>
+			<format property="BUILD_COMPLETE_TIME" pattern="hh:mm:ss aa" />
+		</tstamp>
+		<echo message="${app.name}.war - Build Completed(${BUILD_COMPLETE_TIME})(java version:${java.version})... " />
+	</target>
+
+	<!-- =================================================================== -->
+	<!--             CLEAN                                      			 -->
+	<!-- =================================================================== -->
+	<target name="clean">
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${dist.dir}" />
+			<fileset dir="${build.dir}" />
+			<fileset dir="${war.dir}" />
+		</delete>
+	</target>
+
+	<!-- ==================================================================== -->
+	<!--      Compile and Create Deployable Archives                          -->
+	<!-- ==================================================================== -->
+
+	<target name="build" depends="compile, build-war" />
+
+	<target name="directories">
+		<mkdir dir="${war.dir}" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<target name="compile" depends="directories" description="Compile the Java source code">
+		<javac destdir="${build.dir}" classpathref="build.classpath" debug="${javac.debug}" deprecation="${javac.deprecation}" fork="no" nowarn="on">
+			<src path="${src.dir}" />
+		</javac>
+	</target>
+
+	<target name="build-jar" depends="compile">
+		<echo message="Building jar file" />
+		<jar destfile="${dist.dir}/${app.name}.jar" basedir="${build.dir}" compress="true" />
+	</target>
+
+	<target name="build-war" depends="compile" description="Deploy application">
+		<echo message="Building war file" />
+
+		<delete file="${war.dir}/${app.name}.war" />
+
+		<!-- Copy all library jars and application jars to WEB-INF/lib -->
+		
+		<copy todir="${war.dir}/WEB-INF/classes">
+			<fileset dir="${build.dir}" includes="**/*.*" />
+		</copy>
+		
+		<!-- Copy all web content, dd (spring config xml, hibernate mapping xml, dozer mapping xml etc ) to WEB-INF -->
+		<copy todir="${war.dir}/WEB-INF/">
+			<fileset dir="${web.dir}/WEB-INF/" includes="**/*.*" />
+		</copy>
+		<!-- Copy the root of the web content -->
+		<copy todir="${war.dir}/">
+			<fileset dir="${web.dir}/" includes="*.*" />
+		</copy>
+		<!-- Copy static resources from web content 
+		<copy todir="${war.dir}/">
+			<fileset dir="${web.dir}/resources" includes="**/*.*" />
+		</copy>
+		-->
+	<!--	<copy todir="${jboss.home.dir}/server/default/deploy/ROOT.war/images/">
+			<fileset dir="${web.dir}/images" includes="*.*" />
+		</copy>
+	-->
+		<!-- Create the War file-->
+		<war destfile="${war.dir}/${app.name}.war" webxml="${war.dir}/WEB-INF/web.xml">
+			<fileset dir="${war.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</war>
+		<!-- <jar destfile="${war.dir}/${app.name}.war" basedir="${war.dir}" compress="true" />
+		-->
+		<echo message="Finished creating ${app.name}.war file" />
+	</target>
+
+
+	<target name="deploy" depends="build-war,copywar" description="Deploys War" />
+
+	<target name="cleandeploy" depends="clean,deploy" description="Clean and Deploys War" />
+
+	<!-- ==================================================================== -->
+	<!--      JBOSS entries                          						  -->
+	<!-- ==================================================================== -->
+	<target name="startJbossServer" description=" Starts Jboss Server.">
+		<echo message="Before Starting Jboss server @ ${jboss.home.dir}/bin/run.bat" />
+		<exec executable="${jboss.home.dir}/bin/run.bat" dir="${jboss.home.dir}/bin" failonerror="true">
+			<arg id="-c" value="default" />
+		</exec>
+	</target>
+
+	<target name="stopJbossServer" description=" Stops Jboss Server.">
+		<exec executable="${jboss.home.dir}/bin/shutdown.bat" dir="${jboss.home.dir}/bin" failonerror="true">
+		</exec>
+	</target>
+
+	<target name="deleteWar">
+		<delete file="${jboss.home.dir}/server/default/deploy/${app.name}.war" />
+		<delete dir="${jboss.home.dir}/server/default/conf/addressbook" />
+	</target>
+
+	<target name="copywar" depends="deleteWar" description="Copies War">
+		<copy file="${war.dir}/${app.name}.war" tofile="${jboss.home.dir}/server/default/deploy/${app.name}.war" overwrite="true" failonerror="true" />
+		<mkdir dir="${jboss.home.dir}/server/default/conf/addressbook" />
+		<copy todir="${jboss.home.dir}/server/default/conf/addressbook" overwrite="true" failonerror="true">
+			<fileset dir="${config.dir}" includes="**/*.properties" />
+			<fileset dir="${config.dir}" includes="*.xml" />
+			<fileset dir="${config.dir}" includes="**/*.vm" />
+		</copy>
+	</target>
+
+	<path id="run.cp">
+		<path refid="build.classpath" />
+		<fileset refid="appserver.client.lib" />
+		<fileset refid="appserver.lib" />
+		<pathelement path="${build.dir}" />
+		<pathelement path="${config.dir}" />
+		<pathelement path="${web.dir}/WEB-INF/spring" />
+		<pathelement path="${web.dir}/WEB-INF/mappings" />
+		<pathelement path="${web.dir}/WEB-INF/dozer" />
+		
+	</path>
+
 </project>
