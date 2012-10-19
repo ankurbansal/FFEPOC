@@ -4,14 +4,15 @@
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 	
 	
-	<beans:import resource="spring-app-context.xml" />
+	<beans:import resource="classpath:spring/spring-app-context.xml" />
 	
 
-  	<security:http pattern="/*" security="none" />
+  	<security:http pattern="/login*" security="none"/>
   	<security:http pattern="/resources**/**" security="none" />
+  	
 	<!--  values -->
 	 <security:http use-expressions="true" auto-config="true"  >
-	 <security:form-login login-page="/login" default-target-url="/titlehome"  password-parameter="userloginpassword" username-parameter="userloginid"  /> 
+	 <security:form-login login-page="/login"  default-target-url="/titlehome"  password-parameter="userloginpassword" username-parameter="userloginid"  /> 
 	 <security:logout logout-url="/logout"/>
 	 <security:intercept-url pattern="/approval*" 	access="hasRole('ROLE_ADMIN')" />
 	 <security:intercept-url pattern="/**" 		access="isAuthenticated()" />
@@ -20,17 +21,18 @@
 	
 	<beans:bean id="http403ForbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
-  <!--  
+  <!--    -->
    <security:authentication-manager alias="authenticationManager">
       <security:authentication-provider   user-service-ref='myUserDetailsService'/>
     </security:authentication-manager>
-     -->
+   
 
 	<beans:bean id="myUserDetailsService"
       class="com.ffe.app.service.impl.UserServiceImpl">
     <beans:property name="userDao" ref="userDao"/>
+    <beans:property name="territoryDao" ref="territoryDao"/>
    </beans:bean>
-
+<!--   
   <security:authentication-manager>
     <security:authentication-provider>
       <security:user-service>
@@ -40,7 +42,7 @@
     </security:authentication-provider>
   </security:authentication-manager>
 
-
+ -->
 
 
 </beans:beans>

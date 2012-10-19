@@ -16,11 +16,21 @@ import com.ffe.title.service.TitleService;
 
 
 public class TestDriver {
-	public static void main(String[] args) {
-		saveUser();
+	public static void main(String[] args) throws GTSException {
+		getTerritory();
 	}
 	
 	
+	private static void getTerritory() throws GTSException {
+		String myBeanResources[] = new String[] { "classpath:spring/spring-security-context.xml"};
+		System.setProperty("LOG_PATH", "C://log");
+		//System.setProperty("jboss.server.config.url", "C://servers//jboss-5.0.1.GA//server//default//conf");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
+		UserService userSearch = (UserService) ctx.getBean("myUserDetailsService");
+		System.out.println("territory"+userSearch.lstTerritory().size());
+	}
+
+
 	private static void saveUser() {
 		try {
 			String myBeanResources[] = new String[] { "classpath:spring-security-context.xml"};
@@ -52,7 +62,7 @@ public class TestDriver {
 
 	private static void titleCode(){
 		try {
-		String myBeanResources[] = new String[] { "spring-app-context.xml"};
+		String myBeanResources[] = new String[] { "*/spring-app-context.xml"};
 		System.setProperty("LOG_PATH", "C://log");
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
 

@@ -22,8 +22,9 @@ implements UserDao{
 			System.out.println("userName --->"+userName);
 			List<UserProfile> Users = (List<UserProfile>) getSession()
 					.createQuery(
-							" from com.ffe.common.framework.model.UserProfile user where upper(user.email) = ? ")
-					.setString(0, userName.toUpperCase()).list();
+							" from com.ffe.common.framework.model.UserProfile user where upper(user.email) = :emailId ")
+					.setParameter("emailId",userName.toUpperCase())
+					.list();
 			
 			if (null!=Users && Users.size()>0) {
 				User=Users.get(0);

@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.orm.hibernate3.SessionHolder;
 
 import com.ffe.common.framework.dao.GenericDao;
 import com.ffe.common.framework.model.AbstractDomain;
@@ -203,6 +202,7 @@ public  class GenericHibernateDAO<T extends AbstractDomain> implements
 	public List<T> getAll() {
 		logger.debug("Inside GenericHibernateDAO.getAll");
 		String className = getPersistentClass().getName();
+		System.out.println("inside the file ?-->" + className);
 		Query queryResult = getSession().createQuery("from "+className);		
 		List values = (List <T>)queryResult.list();
 		return values;

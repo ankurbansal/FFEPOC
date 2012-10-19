@@ -96,7 +96,7 @@ body {
 				<div class="SectionTextSubDivLine">
 					<img src="images/SubDivLine.jpg" border="0" />
 				</div>
-			<form:form modelAttribute="UserProfile" action="/register" method="POST" id="user_form" >
+			<form:form modelAttribute="UserProfile" action="./register" method="POST" id="user_form" >
 				<div class="InnerSubFormContainer">
 					<!--InnerSubFormContainer start-->
 					<div class="InnerFormLeftContainer">
@@ -180,10 +180,17 @@ body {
 							Job Function<span class="FieldTextStar">*</span>
 						</div>
 						<div class="TextBoxFld">
-							<label> <select name="select" id="select"
-								class="DropDownLong">
-									<option>Vendor</option>
+							<label> 
+							<form:select path="territoryId"  items="${territorys}" itemValue="territoryId"  itemLabel="name" cssClass="refTypeSelect" />
 							</select>
+							</label>
+						</div>
+						<div class="TextBoxFld">
+							<label> 
+							<form:select path="moneyFormatterId"  cssClass="refTypeSelect" >
+							<form:option value="xxx,xxx,xxx,xxxx">xxx,xxx,xxx,xxxx</form:option>
+							<form:option value="xx,xx,xx,xxxx">xx,xx,xx,xxxx</form:option>
+							</form:select>
 							</label>
 						</div>
 					</div>

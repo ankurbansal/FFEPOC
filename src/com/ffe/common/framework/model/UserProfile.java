@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserProfile extends AbstractDomain implements UserDetails{
@@ -18,15 +17,7 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "UserProfile [authorities=" + authorities + ", dn=" + dn
-				+ ", email=" + email + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", moneyFormatterId="
-				+ moneyFormatterId + ", password=" + password + ", roleString="
-				+ roleString + ", territoryId=" + territoryId + ", uniqueId="
-				+ uniqueId + ", userid=" + userid + "]";
-	}
+	
 	
 	private String toString(Collection<?> collection, int maxLen) {
 		StringBuilder builder = new StringBuilder();
@@ -41,12 +32,22 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 		builder.append("]");
 		return builder.toString();
 	}
+	@Override
+	public String toString() {
+		return "UserProfile [authorities=" + authorities + ", password="
+				+ password + ", dn=" + dn + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", userid="
+				+ userid + ", territoryId=" + territoryId
+				+ ", moneyFormatterId=" + moneyFormatterId
+				+ ", userRoleAssocs=" + userRoleAssocs + ", uniqueId="
+				+ uniqueId + ", roleString=" + roleString + "]";
+	}
 	public Collection<? extends GrantedAuthority> authorities ;
 	public String password;
-	public Long getMoneyFormatterId() {
+	public String getMoneyFormatterId() {
 		return moneyFormatterId;
 	}
-	public void setMoneyFormatterId(Long moneyFormatterId) {
+	public void setMoneyFormatterId(String moneyFormatterId) {
 		this.moneyFormatterId = moneyFormatterId;
 	}
 	public String dn ;
@@ -55,7 +56,7 @@ public class UserProfile extends AbstractDomain implements UserDetails{
 	public String email;
 	public Long userid;
 	public Long territoryId;
-	public Long moneyFormatterId;
+	public String moneyFormatterId;
 	public List<UserRoleAssoc> userRoleAssocs;
 	
 	/**

@@ -44,5 +44,11 @@
 	 <bean id="userDao" class="com.ffe.app.dao.hibernate.UserDaoImpl">
 	 <property name="sessionFactory" ref="appSessionFactory"/>
 	 </bean>
+	  <bean id="regionDao" class="com.ffe.app.dao.hibernate.RegionDaoImpl">
+	 <property name="sessionFactory" ref="appSessionFactory"/>
+	 </bean>
+	  <bean id="territoryDao" class="com.ffe.app.dao.hibernate.TerritoryDaoImpl">
+	 <property name="sessionFactory" ref="appSessionFactory"/>
+	 </bean>
 	
 </beans>
