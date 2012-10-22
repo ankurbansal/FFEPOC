@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_estimateItem" structureRef="com.ffe.estimate.model.Estimate" />
+  <itemDefinition id="_contentItem" />
+  <itemDefinition id="_loggerItem" structureRef="org.slf4j.Logger" />
+
+  <process processType="Private" isExecutable="true" id="regionalapproval" name="DigitalCostReginalApproval" tns:packageName="defaultPackage" >
+
+    <extensionElements>
+     <tns:import name="com.ffe.estimate.model.Estimate" />
+     <tns:import name="org.slf4j.Logger" />
+    </extensionElements>
+    <!-- process variables -->
+    <property id="estimate" itemSubjectRef="_estimateItem"/>
+    <property id="content" itemSubjectRef="_contentItem"/>
+    <property id="logger" itemSubjectRef="_loggerItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_1" name="StartProcess" />
+    <scriptTask id="_2" name="Entry Logic" scriptFormat="http://www.java.com/java" >
+      <script>Logger log = (Logger)kcontext.getVariable("logger");
+log.info("Executing the Process DigitalCostReginalApproval");
+Estimate estimateTerritory = (Estimate)kcontext.getVariable("estimate");
+log.info(estimateTerritory.getEstCostStaId().toString());
+java.util.Map contentParam = new java.util.HashMap();
+contentParam.put("estimate", estimateTerritory);
+kcontext.setVariable("content", contentParam);</script>
+    </scriptTask>
+    <userTask id="_3" name="Digital Estimate Cost - Reginal Approval" >
+      <ioSpecification>
+        <dataInput id="_3_ContentInput" name="Content" />
+        <dataInput id="_3_TaskNameInput" name="TaskName" />
+        <dataInput id="_3_GroupIdInput" name="GroupId" />
+        <dataOutput id="_3_estimateobjOutput" name="estimateobj" />
+        <inputSet>
+          <dataInputRefs>_3_ContentInput</dataInputRefs>
+          <dataInputRefs>_3_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_3_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_3_estimateobjOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>content</sourceRef>
+        <targetRef>_3_ContentInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_3_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Digital Estimate Cost - Reginal Approval</from>
+          <to xsi:type="tFormalExpression">_3_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_3_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Region</from>
+          <to xsi:type="tFormalExpression">_3_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_3_estimateobjOutput</sourceRef>
+        <targetRef>estimate</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression></formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <endEvent id="_4" name="End" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <scriptTask id="_5" name="Logger" scriptFormat="http://www.java.com/java" >
+      <script>Logger log = (Logger)kcontext.getVariable("logger");
+log.info("Exiting the Process DigitalCostReginalApproval");
+Estimate estimateRegion = (Estimate)kcontext.getVariable("estimate");
+if(null != estimateRegion){
+log.info("Estimate Object Value after the Reginal Approval\t"+estimateRegion.getEstCostStaId().toString());
+}
+else{
+log.info("Estimate Object is Null after completing human task");
+}
+log.info("Process is completed");</script>
+    </scriptTask>
+
+    <!-- connections -->
+    <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2" />
+    <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3" />
+    <sequenceFlow id="_5-_4" sourceRef="_5" targetRef="_4" />
+    <sequenceFlow id="_3-_5" sourceRef="_3" targetRef="_5" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="regionalapproval" >
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="16" y="16" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2" >
+        <dc:Bounds x="96" y="16" width="99" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" >
+        <dc:Bounds x="227" y="16" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" >
+        <dc:Bounds x="471" y="16" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" >
+        <dc:Bounds x="359" y="16" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_1-_2" >
+        <di:waypoint x="40" y="40" />
+        <di:waypoint x="145" y="40" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2-_3" >
+        <di:waypoint x="145" y="40" />
+        <di:waypoint x="277" y="40" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_5-_4" >
+        <di:waypoint x="399" y="40" />
+        <di:waypoint x="495" y="40" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_3-_5" >
+        <di:waypoint x="277" y="40" />
+        <di:waypoint x="399" y="40" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

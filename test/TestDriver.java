@@ -1,90 +1,53 @@
-import java.util.Date;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.drools.KnowledgeBase;
+import org.drools.builder.KnowledgeBuilder;
+import org.drools.builder.KnowledgeBuilderFactory;
+import org.drools.builder.ResourceType;
+import org.drools.io.ResourceFactory;
+import org.drools.runtime.StatefulKnowledgeSession;
+import org.jbpm.process.workitem.wsht.WSHumanTaskHandler;
+import org.jbpm.task.query.TaskSummary;
+import org.jbpm.task.service.TaskClient;
+import org.jbpm.task.service.responsehandlers.BlockingTaskSummaryResponseHandler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.ffe.app.service.impl.UserService;
 import com.ffe.common.exception.GTSException;
-import com.ffe.common.framework.model.UserProfile;
 import com.ffe.estimate.model.Estimate;
+import com.ffe.estimate.model.EstimateCostHeader;
 import com.ffe.estimate.model.EstimateCosting;
 import com.ffe.estimate.service.EstimateService;
+import com.ffe.service.model.DigitalCostsVendor;
+import com.ffe.service.model.DigitalServTemplate;
+import com.ffe.service.model.DigitalService;
 import com.ffe.service.service.DigitalCostService;
+import com.ffe.title.model.Title;
 import com.ffe.title.service.TitleService;
 
 
 public class TestDriver {
-	public static void main(String[] args) throws GTSException {
-		getTerritory();
+	public static void main(String[] args) {
+		vendor();
 	}
 	
 	
-	private static void getTerritory() throws GTSException {
-		String myBeanResources[] = new String[] { "classpath:spring/spring-security-context.xml"};
-		System.setProperty("LOG_PATH", "C://log");
-		//System.setProperty("jboss.server.config.url", "C://servers//jboss-5.0.1.GA//server//default//conf");
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
-		UserService userSearch = (UserService) ctx.getBean("myUserDetailsService");
-		System.out.println("territory"+userSearch.lstTerritory().size());
-	}
-
-
-	private static void saveUser() {
-		try {
-			String myBeanResources[] = new String[] { "classpath:spring-security-context.xml"};
-			System.setProperty("LOG_PATH", "C://log");
-			ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
-			UserService userSearch = (UserService) ctx.getBean("myUserDetailsService");
-			UserProfile userProfile= new UserProfile();
-			userProfile.setEmail("akash@gmail.com");
-			userProfile.setCreatedBy("ankur");
-			userProfile.setCreatedDateTime(new Date());
-			userProfile.setDeletedFlag(false);
-			userProfile.setFirstName("akash");
-			userProfile.setLastName("JAIN");
-			userProfile.setLastUpdatedDateTime(new Date());
-			userProfile.setMoneyFormatterId(1l);
-			userProfile.setLastUpdatedBy("ankur");
-			userProfile.setPassword("jain");
-			userProfile.setTerritoryId(1l);	
-			
-			userSearch.saveUser(userProfile);
-			
-			
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		
-	}
-
-
 	private static void titleCode(){
-		try {
-		String myBeanResources[] = new String[] { "*/spring-app-context.xml"};
+		String myBeanResources[] = new String[] { "spring-app-context.xml","spring-jbpm-context.xml"};
 		System.setProperty("LOG_PATH", "C://log");
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
-
+		
 		TitleService titleService = (TitleService) ctx.getBean("titleService");
-	
+		try {
 			System.out.println(titleService.getTitle(21l));
 		} catch (GTSException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
 	}
-	
-	private static void userSearch(){
-		try {
-		String myBeanResources[] = new String[] { "classpath:spring-security-context.xml"};
-		System.setProperty("LOG_PATH", "C://log");
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(myBeanResources);
-		UserDetailsService userSearch = (UserDetailsService) ctx.getBean("myUserDetailsService");
-		System.out.println(userSearch.loadUserByUsername("ankur.bansal@igate.com"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 
@@ -159,9 +122,8 @@ public class TestDriver {
 			
 			
 			
-			/*Estimate estimate = new Estimate();
+			Estimate estimate = new Estimate();
 			estimate.setReleaseId(1l);
-			
 			estimate.setDeletedFlag(false);
 			
 			EstimateCosting estCosting = new EstimateCosting();
@@ -183,10 +145,10 @@ public class TestDriver {
 			estimate.setEstimateCostHeader(estimateCostHeader);
 			
 			
-			Estimate est = estimateService.saveEstimate(estimate);
-			System.out.println("Inserted Successfully\t"+est.getEstimateId());*/
-			
-			Estimate est = estimateService.getEstimate(1l);
+			Estimate est = estimateService.submitEstimate(estimate);
+			System.out.println("Inserted Successfully\t"+est.getEstimateId());
+		
+			/*Estimate est = estimateService.getEstimate(1l);
 			System.out.println("Status\t"+est.getEstCostStaId());
 			List<EstimateCosting> lstEst = est.getLstEstimateCosting();
 			System.out.println("List Size is\t"+lstEst.size());
@@ -195,17 +157,71 @@ public class TestDriver {
 				System.out.println("TotCost\t"+es.getTotalcost());
 			}
 			
-//			EstimateCostHeader estCostHeader = est.getEstimateCostHeader();
-//			System.out.println("EstHeaderfilmLen\t"+estCostHeader.getFilmLength());
-//			
+			EstimateCostHeader estCostHeader = est.getEstimateCostHeader();
+			System.out.println("EstHeaderfilmLen\t"+estCostHeader.getFilmLength());
+			
+			Map<String,Object> m1 = new HashMap<String, Object>();
+			m1.put("estimate",est);
+			estimateService.triggerRegionalApprovalProcess(est);*/
+			
+			
+			/*KnowledgeBase kbase = readKnowledgeBase();
+			StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
+			ksession.getWorkItemManager().registerWorkItemHandler("Human Task", new WSHumanTaskHandler());
+			ksession.startProcess("regionalapproval",m1);*/
+			
+			
+			
+			
+			
+			/*TaskClient client = (TaskClient)ctx.getBean("taskClient");
+			BlockingTaskSummaryResponseHandler taskSummaryResponseHandler =
+				new BlockingTaskSummaryResponseHandler();
+			client.getTasksAssignedAsPotentialOwner("krisv", "en-UK", taskSummaryResponseHandler);
+			List<TaskSummary> tasks = taskSummaryResponseHandler.getResults(); 
+				
+			for(TaskSummary taskSum:tasks)
+			{
+				System.out.println(taskSum.getName());
+				System.out.println(taskSum.getId());
+			}*/
+			
+			/*List<TaskSummary> lst = estimateService.lstTaskAssginedtoGroup("Region","en-UK");
+			for(TaskSummary taskSum:lst)
+			{
+				System.out.println(taskSum.getName());
+				System.out.println(taskSum.getId());
+				estimateService.claimTask(taskSum.getId(),"krisv");
+			}*/
+			
+			//estimateService.startTask(1l,"krisv");
+			/*Estimate est = new Estimate();
+			est.setEstCostStaId(3l);
+			Map<String,Object> inputMap = new HashMap<String, Object>();
+			inputMap.put("estimateobj", est);
+			estimateService.completeTask(1l,"krisv",inputMap);*/
+			
 			
 		}
-		
+		catch(GTSException gts)
+		{
+			gts.printStackTrace();
+			System.out.println("GTS Exception");
+			System.out.println(gts.getLocalizedMessage());
+		}
 		catch(Exception exp)
 		{
 			exp.printStackTrace();
 			System.out.println("Other Exception");
 		}
 		
+	}
+	private static KnowledgeBase readKnowledgeBase() throws Exception {
+		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+		//kbuilder.add(ResourceFactory.newClassPathResource("DynamicWF.bpmn"), ResourceType.BPMN2);
+		//kbuilder.add(ResourceFactory.newClassPathResource("tv1.drl"), ResourceType.DRL);
+		//kbuilder.add(ResourceFactory.newClassPathResource("tv2.drl"), ResourceType.DRL);
+		kbuilder.add(ResourceFactory.newClassPathResource("DigitalCostRegionalApproval.bpmn"),ResourceType.BPMN2);
+		return kbuilder.newKnowledgeBase();
 	}
 }

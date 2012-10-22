@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2012 12:47:06 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ffe.estimate.model.FilmEstimate" table="filmestimate"     lazy="false">
+        <id name="filmEstimateId" type="java.lang.Long">
+            <column name="FILMESTIMATEID" />
+            <generator class="increment"></generator>
+        </id>
+        <property name="estimateId" type="java.lang.Long">
+            <column name="ESTIMATEID" />
+        </property>
+        <property name="releaseId" type="java.lang.Long">
+            <column name="RELEASEID" />
+        </property>
+        <property name="localDistributor" type="java.lang.Long">
+            <column name="LOCALDISTRIBUTOR" />
+        </property>
+        <property name="releaseStudio" type="java.lang.Long">
+            <column name="RELEASESTUDIO" />
+        </property>
+        <property name="releaseDate" type="java.util.Date">
+            <column name="RELEASEDATE" />
+        </property>
+        <property name="alternateFilmTitle" type="java.lang.String">
+            <column name="ALTERNATEFILMTITLE" />
+        </property>
+        <property name="version" type="java.lang.String">
+            <column name="VERSION" />
+        </property>
+        <property name="estimateType" type="java.lang.String">
+            <column name="ESTIMATETYPE" />
+        </property>
+        <property name="estimateStatus" type="java.lang.String">
+            <column name="ESTIMATESTATUS" />
+        </property>
+        <property name="isAlternateReleaseDate" type="java.lang.Boolean">
+            <column name="ISALTERNATERELEASEDATE" />
+        </property>
+        <property name="noOfLocation" type="java.lang.Long">
+            <column name="NOOFLOCATION" />
+        </property>
+        <property name="averageTicketPrice" type="java.math.BigDecimal">
+            <column name="AVERAGETICKETPRICE" />
+        </property>
+        <property name="noOfPrints" type="java.lang.Long">
+            <column name="NOOFPRINTS" />
+        </property>
+        <property name="noOfScreens" type="java.lang.Long">
+            <column name="NOOFSCREENS" />
+        </property>
+        <property name="recommendedBy" type="int">
+            <column name="RECOMMENDEDBY" />
+        </property>
+        
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="lastUpdatedBy" type="java.lang.String">
+            <column name="LASTUPDATEDBY" />
+        </property>
+        <property name="lastUpdatedDateTime" type="java.util.Date">
+            <column name="LASTUPDATEDDATETIME" />
+        </property>
+        <property name="createdDateTime" type="java.util.Date">
+            <column name="CREATEDDATETIME" />
+        </property>
+        <property name="deletedFlag" type="yes_no">
+            <column name="DELETEDFLAG" />
+        </property>
+        
+        <bag name="lstPrintCostCategories"  cascade="all" inverse="true" table="PRINTCOSTCATEGORY" lazy="true">
+            <key>
+                <column name="FILMESTIMATEID" />
+            </key>
+            <one-to-many class="com.ffe.estimate.model.PrintCostCategory" />
+           
+        </bag>
+    </class>
+</hibernate-mapping>
