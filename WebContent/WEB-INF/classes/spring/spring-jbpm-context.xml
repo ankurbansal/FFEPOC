@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jbpm="http://drools.org/schema/drools-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://drools.org/schema/drools-spring
+	http://drools.org/schema/drools-spring.xsd">
+
+<!--<jbpm:kbase id="kbase">
+
+<jbpm:resources>
+    <jbpm:resource type="BPMN2" source="classpath:com/ffe/process/bpmn/DigitalCostRegionalApproval.bpmn"/>
+    </jbpm:resources>
+</jbpm:kbase>
+
+<jbpm:ksession id="ksession" type="stateful" kbase="kbase" />
+
+
+  -->
+  
+  <jbpm:kbase id="kbase">
+    <jbpm:resources>
+      <jbpm:resource type="BPMN2" source="classpath:com/ffe/process/bpmn/DigitalCostRegionalApproval.bpmn" />
+    </jbpm:resources>
+  </jbpm:kbase>
+
+  <jbpm:ksession id="ksession" type="stateful" kbase="kbase">
+  </jbpm:ksession>
+ 
+  <!-- Declare a TaskServer 
+  <bean class="org.jbpm.task.service.TaskService" id="taskService">
+    <constructor-arg ref="entityManagerFactory"/>
+    <constructor-arg>
+      <bean class="org.drools.SystemEventListenerFactory" factory-method="getSystemEventListener"/>
+    </constructor-arg>
+  </bean>
+  <bean class="org.jbpm.task.service.mina.MinaTaskServer" id="taskServer">
+    <constructor-arg ref="taskService"/>
+    <constructor-arg><value>9123</value></constructor-arg>
+  </bean>
+   And start TaskServer on the configured port 
+  <bean class="java.lang.Thread" id="taskServerThread" init-method="start">
+    <constructor-arg ref="taskServer"/>
+  </bean>
+ 
+  -->
+  
+  <!-- Declare a TaskClient -->
+  <bean class="org.jbpm.task.service.mina.MinaTaskClientConnector" id="taskClientConnector">
+    <constructor-arg value="taskClient"/>
+    <constructor-arg>
+      <bean class="org.jbpm.task.service.mina.MinaTaskClientHandler">
+        <constructor-arg>
+          <bean class="org.drools.SystemEventListenerFactory" factory-method="getSystemEventListener"/>
+        </constructor-arg>
+      </bean>
+    </constructor-arg>
+  </bean>
+  <bean class="org.jbpm.task.service.TaskClient" id="taskClient">
+    <constructor-arg ref="taskClientConnector"/>
+  </bean>
+ 
+  <!-- Declare a HumanTaskHandler. It uses previously created TaskClient -->
+  <bean class="org.jbpm.task.service.AsyncTaskServiceWrapper" id="humanTaskClient">
+    <constructor-arg ref="taskClient"/>
+  </bean>
+  <bean class="org.jbpm.process.workitem.wsht.SyncWSHumanTaskHandler" id="humanTaskHandler">
+    <constructor-arg ref="humanTaskClient"/>
+    <constructor-arg ref="ksession"/>
+  </bean>
+  <!-- Configure its connection to the local server -->
+  <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean" depends-on="humanTaskHandler" id="setConnection">
+    <property name="targetObject" ref="humanTaskHandler"/>
+    <property name="targetMethod" value="setConnection"/>
+    <property name="arguments">
+      <list>
+        <value>127.0.0.1</value>
+        <value>9123</value>
+      </list>
+    </property>
+  </bean>
+  <!-- And connect HumanTaskHandler (implicit TaskClient connection) -->
+  <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean" depends-on="setConnection">
+    <property name="targetObject" ref="humanTaskHandler"/>
+    <property name="targetMethod" value="connect"/>
+  </bean>
+ 
+  <!-- Finnaly, register HumanTaskHandler in the session -->
+  <bean factory-bean="ksession" factory-method="getWorkItemManager" id="workItemManager"/>
+  <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetObject" ref="workItemManager"/>
+    <property name="targetMethod" value="registerWorkItemHandler"/>
+    <property name="arguments">
+      <list>
+        <value>Human Task</value>
+        <ref bean="humanTaskHandler"/>
+      </list>
+    </property>
+  </bean>
+  
+</beans>

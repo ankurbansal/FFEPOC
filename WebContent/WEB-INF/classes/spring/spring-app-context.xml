@@ -9,6 +9,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<import resource="spring-datasource-context.xml" />
 	<import resource="spring-aop-context.xml" />
 	<import resource="spring-dao-context.xml" />
+	<import resource="spring-jbpm-context.xml" />
 
 
 	<bean id="titleService"
@@ -26,8 +27,22 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		<bean id="estimateService"
 		class="com.ffe.estimate.service.impl.EstimateServiceImpl">
 		<property name="estimateDAO" ref="estimateDAO" />
+		<property name="statfulknowsession" ref="ksession" />
+		<property name="ffeHumanTaskService" ref="ffeHumanTaskService" />
 	</bean>
 	
+		<bean id="ffeHumanTaskService" class="com.ffe.process.task.service.impl.FFEHumanTaskServiceImpl">
+		<property name="taskSummaryResponseHandler" ref="taskSummaryResponseHandler" />
+		<property name="taskOperationHandler" ref="taskOperationHandler" />
+		<property name="taskResponseHandler" ref="taskResponseHandler" />
+		<property name="taskContentResponseHandler" ref="taskContentResponseHandler" />
+		<property name="taskClient" ref="taskClient" />
+		</bean>
+		
+		<bean id="taskSummaryResponseHandler" class="org.jbpm.task.service.responsehandlers.BlockingTaskSummaryResponseHandler"/>
+		<bean id="taskOperationHandler" class="org.jbpm.task.service.responsehandlers.BlockingTaskOperationResponseHandler"/>
+		<bean id="taskResponseHandler" class="org.jbpm.task.service.responsehandlers.BlockingGetTaskResponseHandler"/>
+		<bean id="taskContentResponseHandler" class="org.jbpm.task.service.responsehandlers.BlockingGetContentResponseHandler"/>
 		
 </beans>
 

@@ -45,6 +45,6 @@ public class ConstantUtil {
 			put("Reject",4l);
 		}
 	};
-	
+	public static final String REGIONAL_APPROVAL_PROCESS_NAME = "regionalapproval";
 	
 }
