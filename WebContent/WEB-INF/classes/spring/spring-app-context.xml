@@ -28,6 +28,13 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		<property name="estimateDAO" ref="estimateDAO" />
 	</bean>
 	
+	<bean id="filmEstimateService"
+		class="com.ffe.estimate.service.impl.FilmEstimateServiceImpl">
+		<property name="filmEstimateDAO" ref="filmEstimateDAO" />
+	</bean>
+	
+	
+	
 		
 </beans>
 
